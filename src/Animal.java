@@ -7,10 +7,11 @@ public class Animal {
     private int age;
     private boolean indicateurDeFaim;
     private boolean indicateurDeSommeil;
+    private boolean dormir;
     private int indicateurDeSante = 100;
 
     public Animal(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
-                  boolean indicateurDeSommeil, int indicateurDeSante) {
+                  , boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante) {
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -18,6 +19,7 @@ public class Animal {
         this.age = age;
         this.indicateurDeFaim = indicateurDeFaim;
         this.indicateurDeSommeil = indicateurDeSommeil;
+        this.dormir = dormir;
         this.indicateurDeSante = indicateurDeSante;
     }
 
@@ -37,4 +39,12 @@ public class Animal {
         }
     }
 
-}
+    public void sommeil() {
+        if (this.indicateurDeSommeil == true) {
+            this.dormir = true;
+        }
+            else if (this.indicateurDeSommeil == false) {
+                this.dormir = false;
+            }
+        }
+    }
