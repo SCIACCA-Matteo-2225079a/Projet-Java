@@ -7,7 +7,7 @@ public class zoo {
     private String maitre;
     private int nbCreatures;
     private int enclosExist;
-    private ArrayList<Creature> creaturePres;
+    private ArrayList<Creature>  creaturePres;
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
         this.creaturePres = creaturePres;
