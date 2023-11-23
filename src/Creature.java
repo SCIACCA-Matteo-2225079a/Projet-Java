@@ -11,9 +11,10 @@ public class Creature {
     private boolean indicateurDeSommeil;
     private boolean dormir;
     private int indicateurDeSante = 100;
+    private boolean malade;
 
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
-                  , boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante) {
+                    boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante, boolean malade) {
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -23,6 +24,7 @@ public class Creature {
         this.indicateurDeSommeil = indicateurDeSommeil;
         this.dormir = dormir;
         this.indicateurDeSante = indicateurDeSante;
+        this.malade = malade;
     }
 
     public void manger() {
@@ -64,7 +66,17 @@ public class Creature {
                         System.out.println("L'animal est mort");
                     }
     }
-    
+
+    public void maladie() {
+        if (this.malade == true) {
+            System.out.println("L'animal est malade");
+            indicateurDeSante = indicateurDeSante - 25;
+        }
+            else if (this.malade == false) {
+                System.out.println("L'animal n'est pas malade");
+            }
+    }
+
 }
 
 

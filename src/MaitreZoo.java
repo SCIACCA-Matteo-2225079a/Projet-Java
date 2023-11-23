@@ -34,7 +34,7 @@ public class MaitreZoo {
     }
     public examinerEnclos()
     {}
-    public nettoyerenclos()
+    public nettoyerEnclos()
     {}
     public  nourrir()
     {}
