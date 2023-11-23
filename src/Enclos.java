@@ -18,7 +18,7 @@ public class Enclos {
         this.nbCreatures = nbCreatures;
         this.creaturesPres = creaturesPres;
         this.proprete = proprete;
-    }
+    }                   // com
 
     public String afficherCaracteristiques()
     {

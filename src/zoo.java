@@ -114,8 +114,8 @@ public class zoo {
 
                 // Inviter l'utilisateur à choisir une action
                 System.out.println("Que souhaitez-vous faire ?");
-                System.out.println("1. Nettoyer les enclos");
-                System.out.println("2. Soigner les créatures");
+                System.out.println("1 : Nettoyer les enclos");
+                System.out.println("2 : Soigner les créatures");
                 System.out.print("Choix : ");
                 int choixUtilisateur = scanner.nextInt();
 

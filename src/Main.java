@@ -4,7 +4,7 @@ public class Main{
 
     public static void main(String[] args) {
         zoo monZoo = new zoo();
-        // ... (initialiser le zoo avec des créatures)
+        // ... (initialiser le zoo avec des créatures)i
 
         // Appeler la méthode pour modéliser l'aspect temporel
         monZoo.gestionTemporel();

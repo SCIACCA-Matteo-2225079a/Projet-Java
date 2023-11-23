@@ -147,7 +147,7 @@ public class Creature {
         else if (this.indicateurDeSante == 0) {
             System.out.println("L'animal est mort");
         }
-    }
+    }                                                               //com
 
     public void maladie() {
         if (this.malade == true) {
