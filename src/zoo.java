@@ -82,7 +82,7 @@ public class zoo {
 
 
     public void setEnclosList(ArrayList<Enclos> enclosList) {
-        this.enclosList = enclosList;
+        this.enclosList = enclosList;  
     }
 
 
