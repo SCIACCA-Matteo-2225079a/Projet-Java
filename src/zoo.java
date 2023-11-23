@@ -53,7 +53,7 @@ public class zoo {
         return enclosList;
     }
 
-    public afficherNbCreatures() {
+    public int afficherNbCreatures() {
         return nbCreatures;
     }
 
@@ -82,7 +82,7 @@ public class zoo {
 
 
     public void setEnclosList(ArrayList<Enclos> enclosList) {
-        this.enclosList = enclosList;  
+        this.enclosList = enclosList;
     }
 
 
@@ -92,17 +92,18 @@ public class zoo {
 
         // À intervalles réguliers
         for (int i = 0; i < 5; i++) {                           // Par exemple, répété 5 fois (à ajuster selon vos besoins)
-            // Modifier aléatoirement l'état de certaines créatures
+                                                                // Modifier aléatoirement l'état de certaines créatures
             for (Creature creature : creaturePres) {
-                // Exemple : 50% de chance de rendre une créature malade
+                                                                // Exemple : 50% de chance de rendre une créature malade
                 if (random.nextDouble() < 0.5) {
                     creature.setMalade(true);
                     System.out.println("La créature " + creature.getNom() + " est maintenant malade !");
                 }
             }
 
-            // Modifier aléatoirement l'état de certains enclos
-            // Exemple : 30% de chance de rendre un enclos sale
+                                                                // Modifier aléatoirement l'état de certains enclos
+
+                                                                // Exemple : 30% de chance de rendre un enclos sale
             if (random.nextDouble() < 0.3) {
                 System.out.println("Certains enclos sont devenus sales !");
                 for (Enclos enclos : enclosList) {
