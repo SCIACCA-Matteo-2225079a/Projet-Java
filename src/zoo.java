@@ -2,20 +2,20 @@ package src;
 
 import java.util.ArrayList;
 
-public class zoo extends Animal{
+public class zoo extends Creature {
 
 
     private String nom;
     private MaitreZoo maitre;
     private int nbCreatures;
     private int enclosExist;
-    private ArrayList<Animal> creaturePres;
+    private ArrayList<Creature> creaturePres;
 
     public zoo(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim, boolean indicateurDeSommeil, int indicateurDeSante) {
         super(nom, sexe, poids, taille, age, indicateurDeFaim, indicateurDeSommeil, indicateurDeSante);
     }
 
-    public void setCreaturePres(ArrayList<Animal> creaturePres) {
+    public void setCreaturePres(ArrayList<Creature> creaturePres) {
         this.creaturePres = creaturePres;
     }
 

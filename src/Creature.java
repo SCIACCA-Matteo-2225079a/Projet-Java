@@ -1,6 +1,6 @@
 package src;
 
-public class Animal {
+public class Creature {
 
     private String nom;
     private String sexe;
@@ -12,7 +12,7 @@ public class Animal {
     private boolean dormir;
     private int indicateurDeSante = 100;
 
-    public Animal(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
+    public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
                   , boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante) {
         this.nom = nom;
         this.sexe = sexe;
@@ -49,4 +49,22 @@ public class Animal {
                 this.dormir = false;
             }
         }
+
+    public void sante() {
+        if (this.indicateurDeSante == 100) {
+            System.out.println("L'animal est en parfaite santé");
+        }
+            else if (this.indicateurDeSante >= 50 &&  this.indicateurDeSante <= 99) {
+                System.out.println("L'animal est en bonne santé");
+            }
+                else if (this.indicateurDeSante >= 1 &&  this.indicateurDeSante <= 49) {
+                    System.out.println("L'animal est en mauvaise santé");
+                }
+                    else if (this.indicateurDeSante == 0) {
+                        System.out.println("L'animal est mort");
+                    }
     }
+    
+}
+
+

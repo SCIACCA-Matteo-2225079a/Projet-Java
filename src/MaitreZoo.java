@@ -1,6 +1,6 @@
 package src;
 
-public class MaitreZoo{
+public class MaitreZoo {
     private String nom;
     private String sexe;
     private int age;
