@@ -2,7 +2,7 @@ public class Main{
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        System.out.println("Hello");
-
+        Enclos enclos1 = new Enclos("Enclos1", 654, 65);
+        System.out.println(Enclos.afficherCaracteristiques());
     }
 }
