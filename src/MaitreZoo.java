@@ -9,6 +9,8 @@ public class MaitreZoo {
     private String sexe;
     private int age;
     public Creature creature;
+
+
     public MaitreZoo(String nom, String sexe, int age )
     {
 
@@ -50,21 +52,11 @@ public class MaitreZoo {
     public void examinerEnclos(Enclos enclos) {
         System.out.println("Le maître du zoo examine l'enclos.");
 
-        // Exemple : Vérifier si l'enclos est sale
-        if (enclos.proprete < 5) {
-            System.out.println("L'enclos est sale. Nettoyer nécessaire.");
-        }
-        else {
-            System.out.println("L'enclos est propre.");
-        }
-
-        // Exemple : Vérifier si l'enclos a suffisamment de nourriture
-        if (nourrir(creature)) {
-            System.out.println("L'enclos a suffisamment de nourriture.");
-        }
-        else {
-            System.out.println("L'enclos a besoin de plus de nourriture.");
-        }
+        System.out.println(enclos.getNom());
+        System.out.println(enclos.getSuperficie());
+        System.out.println(enclos.getNbCreatures()+ "/ "+ enclos.getNbMaxCreatures());
+        System.out.println(enclos.getCreaturesPres());
+        System.out.println(enclos.getProprete());
 
         // Ajoutez d'autres vérifications en fonction de vos besoins...
 
@@ -104,8 +96,23 @@ public class MaitreZoo {
         System.out.println(creature.getNom()+" a été nourris.");
         return false;
     }
-    public void transfer()
+    public void transfer(Enclos enclos, Creature creature)
     {
+        Creature[] liste = {};
+        int i = 1;
+        if (liste!=null)
+        {
+            System.out.println("La créature doit être transférer dans un autre enclos");
+            enclos.enleverCreature(creature);
+            liste = new Creature[] {creature};
+            System.out.println(liste[0]);
+
+        }
+        else
+        {
+            System.out.println("Il n'y a pas de créature à transférer");
+        }
+
     }
     public void seDeplacer()
     {}

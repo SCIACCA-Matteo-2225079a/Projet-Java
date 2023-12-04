@@ -193,7 +193,7 @@ public class Creature {
                 ", sexe='" + sexe + '\'' +
                 ", poids=" + poids +
                 ", taille=" + taille +
-                ", age=" + age +
+                "cm, age=" + age +
                 ", indicateurDeFaim=" + indicateurDeFaim +
                 ", indicateurDeSommeil=" + indicateurDeSommeil +
                 ", dormir=" + dormir +

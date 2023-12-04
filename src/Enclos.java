@@ -11,7 +11,7 @@ public class Enclos {
     private ArrayList<Creature> creaturesPres;
 
 
-    public int proprete;
+    public int proprete = 10;
 
     public Enclos(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature>creaturesPres) {
         this.nom = nom;
@@ -90,17 +90,17 @@ public class Enclos {
         // Vérifier si l'enclos a atteint sa capacité maximale
         if (nbCreatures < nbMaxCreatures) {
             // Créer une nouvelle créature en utilisant les paramètres de la méthode
-            Creature newCreature = new Creature(creature.getNom(),creature.getSexe(),creature.getPoids(),creature.getTaille(),
+            /*Creature newCreature = new Creature(creature.getNom(),creature.getSexe(),creature.getPoids(),creature.getTaille(),
                     creature.getIndicateurDeSante(),creature.isIndicateurDeFaim(),creature.isIndicateurDeSommeil(),
-                    creature.isDormir(),creature.getIndicateurDeSante(),creature.isMalade());
+                    creature.isDormir(),creature.getIndicateurDeSante(),creature.isMalade());*/
 
             // Ajouter la créature à la liste des créatures présentes
-            creaturesPres.add(newCreature);
+            creaturesPres.add(creature);
 
             // Incrémenter le nombre total de créatures
             nbCreatures++;
 
-            System.out.println("La créature " + newCreature.getNom() + " a été ajoutée à l'enclos.");
+            System.out.println("La créature " + creature.getNom() + " a été ajoutée à l'enclos.");
         } else {
             System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
         }
