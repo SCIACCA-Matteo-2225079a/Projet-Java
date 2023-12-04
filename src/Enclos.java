@@ -5,17 +5,17 @@ import java.util.ArrayList;
  * Définition de toutes les statistiques nécéssaires pour chaque enclos.
  */
 
-public class Enclos extends Creature {
+public class Enclos  {
 
     private String nom;
     private double superficie;
     private int nbMaxCreatures;
     private int nbCreatures;
     private ArrayList<Creature> creaturesPres;
-    private int proprete;
+    public int proprete;
 
     public Enclos (String nom, double superficie, int nbMaxCreatures, int nbCreatures, ArrayList<Creature> creaturesPres, int proprete) {
-        super();
+
         this.nom = nom;
         this.superficie = superficie;
         this.nbMaxCreatures = nbMaxCreatures;

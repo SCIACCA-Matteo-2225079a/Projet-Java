@@ -16,32 +16,23 @@ public class zoo extends Creature {
     private ArrayList<Creature> creaturePres;
 
     public zoo(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim, boolean indicateurDeSommeil, int indicateurDeSante ,boolean malade) {
-        super(nom, sexe, poids, taille, age, indicateurDeSante, indicateurDeFaim, indicateurDeSommeil, malade);
+        super(nom, sexe, poids, taille, age, indicateurDeSante,indicateurDeFaim, indicateurDeSommeil,malade);
     }
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
-
         this.creaturePres = creaturePres;
     }
 
     public String getNom() {
-
         return nom;
     }
 
     public void setNom(String nom) {
-
         this.nom = nom;
     }
 
-    public String getMaitre() {
-
-        return maitre;
-    }
-
-    public void setMaitre(String maitre) {
-
-        this.maitre = maitre;
+    public String Maitre(String maitre) {
+       this.maitre= getnom();
     }
 
     public int getNbCreatures() {
@@ -67,11 +58,13 @@ public class zoo extends Creature {
 
 
 
-    public afficherNbCreatures() {
-
+    public int afficherNbCreatures() {
+    return 0;
     }
 
-    public afficherCreaturesPres() {
+    public Creature afficherCreaturesPres() {
+        return creaturePres.get(0);
+    }
 
     }
 }
