@@ -188,18 +188,10 @@ public class Creature {
 
     @Override
     public String toString() {
-        return "Creature{" +
-                "nom='" + nom + '\'' +
-                ", sexe='" + sexe + '\'' +
-                ", poids=" + poids +
-                ", taille=" + taille +
-                "cm, age=" + age +
-                ", indicateurDeFaim=" + indicateurDeFaim +
-                ", indicateurDeSommeil=" + indicateurDeSommeil +
-                ", dormir=" + dormir +
-                ", indicateurDeSante=" + indicateurDeSante +
-                ", malade=" + malade +
-                '}';
+        return  "Espèce : " + nom + '\n' + "Sexe : " + sexe + '\n' + "Poids : " + poids + '\n'
+                + "Taille : " + taille + "cm"+ '\n'+"Age : " + age + '\n'+ "Indicateur de faim : " + indicateurDeFaim + '\n'+
+                "Indicateur de sommeil : " + indicateurDeSommeil + '\n'+ "Endormie : " + dormir +  '\n'+"Indicateur de sante :" + indicateurDeSante
+                + '\n'+ "Malade : " + malade+ '\n' ;
     }
 }
 

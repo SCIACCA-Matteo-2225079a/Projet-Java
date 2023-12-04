@@ -1,27 +1,27 @@
 package src;
 
-/**
- * ffrff.
- */
 
 import java.util.ArrayList;
 
-public class zoo extends Creature {
+public class zoo  {
 
 
     private String nom;
     private MaitreZoo maitre;
     private int nbCreatures;
     private int enclosExist;
+    public Creature creature;;
     private ArrayList<Creature> creaturePres;
 
-    public zoo(String nom, MaitreZoo maitre ,int nbcrea, int enclos, Creature creature)
+    public zoo(String nom, MaitreZoo maitre ,int nbcrea, int enclos, ArrayList<Creature> creaturePres)
     {
-        super(creature.getNom(), creature.getSexe(), creature.getPoids(),creature.getTaille(),creature.getAge(),creature.isIndicateurDeFaim(), creature.isIndicateurDeSommeil(), creature.isDormir(),creature.getIndicateurDeSante(), creature.isMalade());
+
+
         this.nom = nom;
         this.maitre= maitre;
         this.nbCreatures=nbcrea;
         this.enclosExist = enclos;
+        this.creaturePres= creaturePres;
     }
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {

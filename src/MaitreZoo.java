@@ -30,7 +30,6 @@ public class MaitreZoo {
     }
 
     public String getSexe() {
-
         return sexe;
     }
 
@@ -120,6 +119,6 @@ public class MaitreZoo {
     @Override
     public String toString() {
         return
-                 nom + " "+ sexe + " " +age ;
+                 nom + " "+ sexe + " " +age + " ans" ;
     }
 }

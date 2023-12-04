@@ -13,31 +13,69 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int age ;
+        String nom;
+        String genre;
+
         // TODO Auto-generated method stub
         Creature creature = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
         Creature creature2 = new Creature("Dragon","homme",32,5,19,true,false,false,50,false);
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
+        zoo zoo = new zoo("Foires au monstres",maitre,8,6,ListeCrea);
         enclos.ajouterCreature(creature);
         enclos.ajouterCreature(creature2);
+
+
+
+        System.out.println("Ecrit ton nom");
+        nom = sc.nextLine();
+        maitre.setNom(nom);
+        System.out.println("Choisis ton genre");
+        genre= sc.nextLine();
+        maitre.setSexe(genre);
+        System.out.println("Choisis ton age");
+        age = sc.nextInt();
+        maitre.setAge(age);
+
+
         System.out.println("Bonjour je suis "+ maitre);
-        maitre.examinerEnclos(enclos);
+        // Entrée un lettre au clavier
+        System.out.println("Quelle action voulez-vous faire ?");
         String str = sc.nextLine();
 
-           if (str.equals("d"))
-           {
-
                maitre.transfer(enclos,creature);
-
-           }
-        maitre.examinerEnclos(enclos);
+               System.out.println(" ");
 
 
-        /*maitre.nourrir());
-        System.out.println(" ");
-        System.out.println();
-        maitre.nettoyage();*/
+            maitre.nourrir(creature2);
+            System.out.println(" ");
+
+
+
+
+
+            maitre.nettoyage(enclos);
+            System.out.println(" ");
+
+
+
+
+            creature.sante();
+            System.out.println(" ");
+
+
+
+
+            maitre.examinerEnclos(enclos);
+            System.out.println(" ");
+
+
+        //Modifie le nombre d'enclos selon le nombre entrée au clavier 
+        int nb = sc.nextInt();
+        zoo.setEnclosExist(nb);
+        System.out.println(zoo.getEnclosExist());
 
     }
 }
