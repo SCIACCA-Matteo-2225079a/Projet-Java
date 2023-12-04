@@ -103,6 +103,8 @@ public class Enclos {
     }
 
 
+
+
     public void enleverCreature(Creature creature) {
         if (creaturesPres.contains(creature)) {
             creaturesPres.remove(creature);

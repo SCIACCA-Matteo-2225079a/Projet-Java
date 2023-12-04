@@ -80,5 +80,7 @@ public class Creature {
 
     public String getNom() {
         return null;
+
+
     }
 }
