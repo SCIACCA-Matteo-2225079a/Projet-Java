@@ -72,21 +72,10 @@ public class MaitreZoo {
         System.out.println("Examen de l'enclos terminé.");
 
     }
-    private boolean enclosEstSale() {
-        // Ajoutez ici la logique pour déterminer si l'enclos est sale
-        // Vous pouvez utiliser des variables d'état, des capteurs, etc.
-        // Pour cet exemple, nous retournerons toujours true.
-        return false;
-    }
-        public void nettoyerEnclos()
+
+        public void nettoyage(Enclos enclos)
     {
-        if (enclosEstSale()) {
-            System.out.println("Le maître du zoo nettoie l'enclos.");
-            // Ajoutez ici la logique spécifique de nettoyage de l'enclos
-            // ...
-        } else {
-            System.out.println("L'enclos n'est pas sale. Pas besoin de nettoyer.");
-        }
+        enclos.entretenir();
     }
 
     public boolean nourrir(Creature creature) {
@@ -94,6 +83,7 @@ public class MaitreZoo {
 
         // Vérifier si la créature est null avant d'appeler ses méthodes
         if (creature != null) {
+
             // Exemple : Vérifier si la créature a besoin de nourriture
             if (creature.isIndicateurDeFaim()) {
                 System.out.println("Le maître du zoo nourrit les animaux.");
@@ -115,7 +105,8 @@ public class MaitreZoo {
         return false;
     }
     public void transfer()
-    {}
+    {
+    }
     public void seDeplacer()
     {}
 
