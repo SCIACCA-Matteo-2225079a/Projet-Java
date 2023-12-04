@@ -134,6 +134,8 @@ public class Creature {
     public void manger() {
         if (this.indicateurDeSommeil == false) {
             this.indicateurDeFaim = false;
+            System.out.println(getNom()+" est en train de manger " +'\n'+indicateurDeFaim );
+
         }
     }
 
@@ -184,6 +186,21 @@ public class Creature {
             }
     }
 
+    @Override
+    public String toString() {
+        return "Creature{" +
+                "nom='" + nom + '\'' +
+                ", sexe='" + sexe + '\'' +
+                ", poids=" + poids +
+                ", taille=" + taille +
+                ", age=" + age +
+                ", indicateurDeFaim=" + indicateurDeFaim +
+                ", indicateurDeSommeil=" + indicateurDeSommeil +
+                ", dormir=" + dormir +
+                ", indicateurDeSante=" + indicateurDeSante +
+                ", malade=" + malade +
+                '}';
+    }
 }
 
 

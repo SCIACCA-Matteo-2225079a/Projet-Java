@@ -39,11 +39,6 @@ public class Enclos  {
 
     }
 
-    public void nourrir()
-    {
-
-    }
-
     public void entretenir()
     {
 

@@ -8,7 +8,7 @@ public class MaitreZoo {
     private String nom;
     private String sexe;
     private int age;
-
+    public Creature creature;
     public MaitreZoo(String nom, String sexe, int age )
     {
 
@@ -51,7 +51,7 @@ public class MaitreZoo {
         System.out.println("Le maître du zoo examine l'enclos.");
 
         // Exemple : Vérifier si l'enclos est sale
-        if (enclos.proprete == 5) {
+        if (enclos.proprete < 5) {
             System.out.println("L'enclos est sale. Nettoyer nécessaire.");
         }
         else {
@@ -59,7 +59,7 @@ public class MaitreZoo {
         }
 
         // Exemple : Vérifier si l'enclos a suffisamment de nourriture
-        if (nourrir()) {
+        if (nourrir(creature)) {
             System.out.println("L'enclos a suffisamment de nourriture.");
         }
         else {
@@ -89,20 +89,39 @@ public class MaitreZoo {
         }
     }
 
-    public boolean nourrir(Creature creature)
-    {
-        if(creature.isIndicateurDeFaim()==false )
-        {
-            creature.manger();
-            return true;
+    public boolean nourrir(Creature creature) {
+
+
+        // Vérifier si la créature est null avant d'appeler ses méthodes
+        if (creature != null) {
+            // Exemple : Vérifier si la créature a besoin de nourriture
+            if (creature.isIndicateurDeFaim()) {
+                System.out.println("Le maître du zoo nourrit les animaux.");
+                System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
+                creature.manger();
+            }
+            else {
+                System.out.println(creature.getNom()+" n'a pas faim.");
+            }
+
+            // Ajoutez d'autres opérations liées à l'alimentation en fonction de vos besoins...
         } else {
-            return false ;
+            System.out.println("Erreur : La créature est null. Impossible de nourrir.");
+            return true;
         }
 
-
+        // Exemple : Afficher un message après l'alimentation
+        System.out.println(creature.getNom()+" a été nourris.");
+        return false;
     }
     public void transfer()
     {}
     public void seDeplacer()
     {}
+
+    @Override
+    public String toString() {
+        return
+                 nom + " "+ sexe + " " +age ;
+    }
 }

@@ -15,8 +15,13 @@ public class zoo extends Creature {
     private int enclosExist;
     private ArrayList<Creature> creaturePres;
 
-    public zoo(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim, boolean indicateurDeSommeil, int indicateurDeSante ,boolean malade) {
-        super(nom, sexe, poids, taille, age, indicateurDeSante,indicateurDeFaim, indicateurDeSommeil,malade);
+    public zoo(String nom, MaitreZoo maitre ,int nbcrea, int enclos, Creature creature)
+    {
+        super(creature.getNom(), creature.getSexe(), creature.getPoids(),creature.getTaille(),creature.getAge(),creature.isIndicateurDeFaim(), creature.isIndicateurDeSommeil(), creature.isDormir(),creature.getIndicateurDeSante(), creature.isMalade());
+        this.nom = nom;
+        this.maitre= maitre;
+        this.nbCreatures=nbcrea;
+        this.enclosExist = enclos;
     }
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
@@ -31,9 +36,9 @@ public class zoo extends Creature {
         this.nom = nom;
     }
 
-    public String Maitre(String maitre) {
+   /* public String Maitre(String maitre) {
        this.maitre= getnom();
-    }
+    }*/
 
     public int getNbCreatures() {
 
@@ -66,5 +71,4 @@ public class zoo extends Creature {
         return creaturePres.get(0);
     }
 
-    }
 }
