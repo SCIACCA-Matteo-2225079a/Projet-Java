@@ -32,82 +32,102 @@ public class Creature {
     }
 
     public String getNom() {
+
         return nom;
     }
 
     public void setNom(String nom) {
+
         this.nom = nom;
     }
 
     public String getSexe() {
+
         return sexe;
     }
 
     public void setSexe(String sexe) {
+
         this.sexe = sexe;
     }
 
     public int getPoids() {
+
         return poids;
     }
 
     public void setPoids(int poids) {
+
         this.poids = poids;
     }
 
     public int getTaille() {
+
         return taille;
     }
 
     public void setTaille(int taille) {
+
         this.taille = taille;
     }
 
     public int getAge() {
+
         return age;
     }
 
     public void setAge(int age) {
+
         this.age = age;
     }
 
     public boolean isIndicateurDeFaim() {
+
         return indicateurDeFaim;
     }
 
     public void setIndicateurDeFaim(boolean indicateurDeFaim) {
+
         this.indicateurDeFaim = indicateurDeFaim;
     }
 
     public boolean isIndicateurDeSommeil() {
+
         return indicateurDeSommeil;
     }
 
     public void setIndicateurDeSommeil(boolean indicateurDeSommeil) {
+
         this.indicateurDeSommeil = indicateurDeSommeil;
     }
 
     public boolean isDormir() {
+
         return dormir;
     }
 
     public void setDormir(boolean dormir) {
+
         this.dormir = dormir;
     }
 
     public int getIndicateurDeSante() {
+
         return indicateurDeSante;
     }
 
     public void setIndicateurDeSante(int indicateurDeSante) {
+
         this.indicateurDeSante = indicateurDeSante;
     }
 
     public boolean isMalade() {
+
         return malade;
     }
 
     public void setMalade(boolean malade) {
+
         this.malade = malade;
     }
 
@@ -118,6 +138,7 @@ public class Creature {
     }
 
     public String emettreUnSon(String son) {
+
         return son;
     }
 
