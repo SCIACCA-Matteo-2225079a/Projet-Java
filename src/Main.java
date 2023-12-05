@@ -24,13 +24,16 @@ public class Main {
         Creature creature2 = new Creature("Dragon","homme",32,5,19,true,false,false,50,false);
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         ArrayList<Creature> ListecreaEnclos2 = new ArrayList<>();
+        ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
         Enclos enclos2 = new Enclos("Grotte", 60,8,ListecreaEnclos2);
-        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea/*, 1*/);
+        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea,enclosArrayList,10);
         Zoo.lancerTimer();
         enclos.ajouterCreature(creature);
         enclos.ajouterCreature(creature2);
+        enclosArrayList.add(enclos);
+        enclosArrayList.add(enclos2);
 
 
 
@@ -78,6 +81,7 @@ public class Main {
                             '\n'+"- t pour tranfèrer les créatures dans un autre enclos"+
                             '\n'+"- e pour examiner un enclos"+
                             '\n'+"- m pour nettoyer un enclos"+
+                            '\n'+"- s pour soigner une créature"+
                             '\n'+"- c pour quitter l'interface action");
 
                     char interragir = sc.next().charAt(0);
@@ -87,28 +91,35 @@ public class Main {
                             maitre.nourrir(ListeCrea.get(i));
                         }
                     }
-                    if (interragir == 't') {
+                    else if (interragir == 't') {
                         maitre.transfer(enclos,enclos2,creature);
                     }
-                    if (interragir == 'e') {
+                    else if (interragir == 'e') {
                         maitre.examinerEnclos(enclos);
                     }
-                    if (interragir == 'm') {
+                    else if (interragir == 'm') {
                         maitre.nettoyage(enclos);
                     }
+                    else if (interragir == 's') {
+                        creature.etreSoigne();
+                    }
 
-                    if (interragir == 'c') {
+                    else if (interragir == 'c') {
                         break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
+                    }
+                    else {
+                        System.out.println("Commande non reconnue. Veuillez réessayer.");
                     }
                 }
             }
             else if (action.equals("x")) {
+                // Ferme le scanner après utilisation
+                sc.close();
                 break; // Quitte la boucle principale si l'utilisateur choisit de quitter
-            } else {
+            }
+            else {
                 System.out.println("Commande non reconnue. Veuillez réessayer.");
             }
         }
-        // Ferme le scanner après utilisation
-        sc.close();
         }
 }

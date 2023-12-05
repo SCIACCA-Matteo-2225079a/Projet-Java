@@ -122,7 +122,14 @@ public class Creature {
     }
 
     public boolean isMalade() {
-
+        if(malade== true)
+        {
+            System.out.println(getNom()+" est malade.");
+            while (indicateurDeSante !=0 )
+            {
+                --indicateurDeSante;
+            }
+        }
         return malade;
     }
 
@@ -146,10 +153,13 @@ public class Creature {
 
 
     
-    public void etreSoigne() {
+    public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
+            System.out.println(getNom()+" va être soigné.");
             this.indicateurDeSante = 100;
+            System.out.println(getNom()+" est soigné. "+ getIndicateurDeSante());
         }
+        return indicateurDeSante;
     }
 
     public void sommeil() {

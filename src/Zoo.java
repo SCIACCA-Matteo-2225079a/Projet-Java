@@ -10,22 +10,23 @@ public class Zoo  {
     private String nom;
     private MaitreZoo maitre;
     private int nbCreatures;
-    private Enclos[] enclosExist;
+    private ArrayList<Enclos> enclosExist;
     private int nbEnclos;
     public Creature creature;
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
     private int nbMaxEnclos;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres/*, int jour*/)
+    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
-
 
         this.nom = nom;
         this.maitre= maitre;
         this.nbCreatures=nbcrea;
-        this.nbEnclos = nbEnclos;
+        this.nbEnclos = enclos;
         this.creaturePres= creaturePres;
+        this.enclosExist=enclosExist;
+        this.nbMaxEnclos = nbMaxEnclos;
         //this.jour = jour;
     }
 
