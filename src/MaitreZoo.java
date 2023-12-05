@@ -65,7 +65,19 @@ public class MaitreZoo {
 
         public void nettoyage(Enclos enclos)
     {
-        enclos.entretenir();
+
+
+        // Vérifier si l'enclos est sale et vide
+        if (enclos.proprete<5 && enclos.getNbCreatures() == 0) {
+            System.out.println("Nettoyage en cours de l'enclos...");
+            // Logique de nettoyage (à adapter en fonction de vos besoins)
+            // Réinitialiser l'indicateur de propreté à "bon", par exemple
+            enclos.proprete = 10;
+
+            System.out.println("L'enclos a été nettoyé avec succès.");
+        } else {
+            System.out.println("L'enclos ne nécessite pas d'entretien pour le moment.");
+        }
     }
 
     public boolean nourrir(Creature creature) {
@@ -127,9 +139,13 @@ public class MaitreZoo {
         } else if (touche == 's') {
             System.out.println("Le maitre se déplace en bas");
         }
+        else
+        {
+            System.out.println("Commande non reconnue");
+        }
     }
 
-    public void actionMaitre(char touche){}
+
     @Override
     public String toString() {
         return

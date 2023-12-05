@@ -33,7 +33,7 @@ public class Main {
         enclos.ajouterCreature(creature2);
 
 
-/*
+
         System.out.println("Ecrit ton nom");
         nom = sc.nextLine();
         maitre.setNom(nom);
@@ -42,31 +42,25 @@ public class Main {
         maitre.setSexe(genre);
         System.out.println("Choisis ton age");
         age = sc.nextInt();
-        maitre.setAge(age);*/
+        maitre.setAge(age);
 
 
         System.out.println("Bonjour je suis "+ maitre);
         System.out.println("On est dans le jour " + Zoo.getJour());
 
         // Entrée un lettre au clavier
-        System.out.println("Quelle action voulez-vous faire ?");
-        for (int i = 0; i < ListeCrea.size(); i++) {
-            maitre.nourrir(ListeCrea.get(i));
-        }
         while (true) {
-            System.out.println("Quelle action voulez-vous faire ? (d pour se déplacer, f pour quitter)");
+            System.out.println("Quelle action voulez-vous faire ? (i pour pour faire une action, w pour se déplacer, x pour quitter)");
             String action = sc.nextLine();
 
-            if (action.equals("t")) {
-                System.out.println("Utilisez les touches fléchées pour vous déplacer (q pour quitter le déplacement)");
+            if (action.equals("w")) {
+                System.out.println("Utilisez les touches fléchées pour vous déplacer (c pour quitter le déplacement)");
 
                 // Attend l'entrée des touches fléchées
                 while (true) {
                     char move = sc.next().charAt(0);
 
-                    // TODO: Ajoutez ici la logique pour gérer le déplacement avec les touches fléchées
-                    // Vous pouvez ajuster les coordonnées du maître du zoo en fonction des touches.
-                    // Par exemple, utilisez 'w' pour monter, 'a' pour aller à gauche, 's' pour descendre, 'd' pour aller à droite.
+                    //Utilisez 'w' pour monter, 'a' pour aller à gauche, 's' pour descendre, 'd' pour aller à droite.
                     // Lorsque l'utilisateur appuie sur 'q', quittez la boucle interne
                     maitre.seDeplacer(move);
 
@@ -74,45 +68,47 @@ public class Main {
                         break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
                     }
                 }
-            } else if (action.equals("f")) {
+            }
+            else if (action.equals("i"))
+            {
+                // Attend l'entrée des touches fléchées
+                while (true) {
+                    System.out.println("Utilisez les touches pour effectuer une action"+
+                            '\n'+"- n pour nourrir les créatures d'un enclos"+
+                            '\n'+"- t pour tranfèrer les créatures dans un autre enclos"+
+                            '\n'+"- e pour examiner un enclos"+
+                            '\n'+"- m pour nettoyer un enclos"+
+                            '\n'+"- c pour quitter l'interface action");
+
+                    char interragir = sc.next().charAt(0);
+
+                    if (interragir == 'n') {
+                        for (int i = 0; i < ListeCrea.size(); i++) {
+                            maitre.nourrir(ListeCrea.get(i));
+                        }
+                    }
+                    if (interragir == 't') {
+                        maitre.transfer(enclos,enclos2,creature);
+                    }
+                    if (interragir == 'e') {
+                        maitre.examinerEnclos(enclos);
+                    }
+                    if (interragir == 'm') {
+                        maitre.nettoyage(enclos);
+                    }
+
+                    if (interragir == 'c') {
+                        break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
+                    }
+                }
+            }
+            else if (action.equals("x")) {
                 break; // Quitte la boucle principale si l'utilisateur choisit de quitter
             } else {
                 System.out.println("Commande non reconnue. Veuillez réessayer.");
             }
         }
-
         // Ferme le scanner après utilisation
         sc.close();
-
-/*
-        System.out.println("Ecrit ton nom");
-        nom = sc.nextLine();
-        maitre.setNom(nom);
-        System.out.println("Choisis ton genre");
-        genre= sc.nextLine();
-        maitre.setSexe(genre);
-        System.out.println("Choisis ton age");
-        age = sc.nextInt();
-        maitre.setAge(age);*/
-
-
-        System.out.println("Bonjour je suis "+ maitre);
-
-        // Entrée un lettre au clavier
-        System.out.println("Quelle action voulez-vous faire ?");
-        //String str = sc.nextLine();
-        maitre.examinerEnclos(enclos);
-        System.out.println(" ");
-
-        maitre.transfer(enclos,enclos2,creature);
-        System.out.println(" ");
-
-        maitre.examinerEnclos(enclos);
-        System.out.println(" ");
-
-        maitre.examinerEnclos(enclos2);
-
-
-
         }
 }

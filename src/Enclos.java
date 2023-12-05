@@ -129,35 +129,5 @@ public class Enclos {
         return false;
     }
 
-    /*public void nourrirCreatures() {
-        for (Creature creature : creaturesPres) {
-            creature.manger();
-        }
-
-        System.out.println("Toutes les créatures de l'enclos ont été nourries.");
-        System.out.println("Nombre total de créatures dans l'enclos : " + nbCreatures);
-    }*/
-
-    public void nettoyerEnclos() {
-        System.out.println("Nettoyage en cours de l'enclos...");
-
-        // Logique de nettoyage (à adapter en fonction de vos besoins)
-        // Réinitialiser l'indicateur de propreté à "bon", par exemple
-        proprete = 10;
-
-        System.out.println("L'enclos a été nettoyé avec succès.");
-    }
-
-
-    public void entretenir() {
-        // Vérifier si l'enclos est sale et vide
-        if (proprete<5 && nbCreatures == 0) {
-            nettoyerEnclos();
-        } else {
-            System.out.println("L'enclos ne nécessite pas d'entretien pour le moment.");
-        }
-    }
-
-
 }
 
