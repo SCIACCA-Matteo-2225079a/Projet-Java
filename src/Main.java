@@ -3,7 +3,8 @@ package src;
 import java.util.ArrayList;
 //Ceci importe la classe Scanner du package java.util
 import java.util.Scanner;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Exécution des fonctions.
@@ -23,7 +24,8 @@ public class Main {
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
-        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea);
+        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea, 1);
+        Zoo.lancerTimer();
         enclos.ajouterCreature(creature);
         enclos.ajouterCreature(creature2);
 
@@ -72,10 +74,12 @@ public class Main {
             maitre.examinerEnclos(enclos);
             System.out.println(" ");
 
+            System.out.println("On est dans le jour " + Zoo.getJour());
 
         //Modifie le nombre d'enclos selon le nombre entrée au clavier 
         //int nb = sc.nextInt();
         zoo.afficherNbCreatures();
 
-    }
+        }
+
 }
