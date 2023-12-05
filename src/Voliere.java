@@ -23,10 +23,5 @@ public class Voliere extends Enclos {
         return super.afficherCaracteristiques() + " Hauteur de la volière : " + hauteur;
     }
 
-    @Override
-    public void entretenir() {
-        super.entretenir();
-        System.out.println("Vérification du toit de la volière en cours...");
-        // Logique de vérification du toit
-    }
+
 }
