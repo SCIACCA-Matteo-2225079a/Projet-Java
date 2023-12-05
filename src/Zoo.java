@@ -40,9 +40,10 @@ public class Zoo  {
         this.nom = nom;
     }
 
-   /* public String Maitre(String maitre) {
-       this.maitre= getnom();
-    }*/
+   public String maitre(MaitreZoo maitre) {
+
+       return maitre.getNom();
+   }
 
     public int getNbCreatures() {
 
