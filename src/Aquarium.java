@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 
 public class Aquarium extends Enclos {
@@ -34,6 +35,7 @@ public class Aquarium extends Enclos {
 
     @Override
     public void entretenir() {
+        super.entretenir();
         System.out.println("Vérification de la profondeur du bassin et de la salinité de l'eau en cours...");
         // Logique de vérification de la profondeur du bassin et de la salinité de l'eau
     }
