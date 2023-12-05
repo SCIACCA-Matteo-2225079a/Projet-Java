@@ -118,7 +118,16 @@ public class Enclos {
             System.out.println("La créature n'est pas présente dans l'enclos.");
         }
     }
-
+    public boolean contientCreature(Creature creatureTrue) {
+        // Supposons que creature est une propriété de votre Enclos
+        // Vérifiez si la créature donnée est présente dans l'enclos
+        for (Creature c : creaturesPres) {
+            if (c.equals(creatureTrue)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /*public void nourrirCreatures() {
         for (Creature creature : creaturesPres) {

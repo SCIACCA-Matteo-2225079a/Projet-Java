@@ -95,23 +95,25 @@ public class MaitreZoo {
         System.out.println(creature.getNom()+" a été nourris.");
         return false;
     }
-    public void transfer(Enclos enclos, Creature creature)
-    {
-        Creature[] liste = {};
-        int i = 1;
-        if (liste!=null)
-        {
-            System.out.println("La créature doit être transférer dans un autre enclos");
-            enclos.enleverCreature(creature);
-            liste = new Creature[] {creature};
-            System.out.println(liste[0]);
 
-        }
-        else
-        {
-            System.out.println("Il n'y a pas de créature à transférer");
-        }
 
+    public void transfer(Enclos enclosActuel, Enclos nouvelEnclos, Creature creature) {
+        Creature[] liste = {}; // Déclaration d'un tableau vide, mais inutile ici
+
+        // Vérifier si la créature est présente dans l'enclos actuel
+        if (enclosActuel.contientCreature(creature)) {
+            System.out.println("La créature va être transférée dans un autre enclos.");
+
+            // Enlever la créature de l'enclos actuel
+            enclosActuel.enleverCreature(creature);
+
+            // Ajouter la créature au nouvel enclos
+            nouvelEnclos.ajouterCreature(creature);
+
+            System.out.println("La créature a été transférée avec succès dans le nouvel enclos.");
+        } else {
+            System.out.println("La créature n'est pas présente dans l'enclos actuel. Aucun transfert nécessaire.");
+        }
     }
     public void seDeplacer()
     {}
