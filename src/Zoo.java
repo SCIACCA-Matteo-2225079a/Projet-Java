@@ -3,17 +3,17 @@ package src;
 
 import java.util.ArrayList;
 
-public class zoo  {
+public class Zoo {
 
 
     private String nom;
     private MaitreZoo maitre;
     private int nbCreatures;
     private int enclosExist;
-    public Creature creature;;
+    public Creature creature;
     private ArrayList<Creature> creaturePres;
 
-    public zoo(String nom, MaitreZoo maitre ,int nbcrea, int enclos, ArrayList<Creature> creaturePres)
+    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres)
     {
 
 
@@ -64,10 +64,12 @@ public class zoo  {
 
 
     public int afficherNbCreatures() {
-    return 0;
+
+        return 0;
     }
 
     public Creature afficherCreaturesPres() {
+
         return creaturePres.get(0);
     }
 

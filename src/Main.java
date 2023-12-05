@@ -23,7 +23,7 @@ public class Main {
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
-        zoo zoo = new zoo("Foires au monstres",maitre,8,6,ListeCrea);
+        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea);
         enclos.ajouterCreature(creature);
         enclos.ajouterCreature(creature2);
 

@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Définition des statistiques nécéssaires au maître du zoo.
+ * Définition des statistiques nécéssaires au maître du Zoo.
  */
 
 public class MaitreZoo {
@@ -49,7 +49,7 @@ public class MaitreZoo {
     }
 
     public void examinerEnclos(Enclos enclos) {
-        System.out.println("Le maître du zoo examine l'enclos.");
+        System.out.println("Le maître du Zoo examine l'enclos.");
 
         System.out.println(enclos.getNom());
         System.out.println(enclos.getSuperficie());
@@ -77,7 +77,7 @@ public class MaitreZoo {
 
             // Exemple : Vérifier si la créature a besoin de nourriture
             if (creature.isIndicateurDeFaim()) {
-                System.out.println("Le maître du zoo nourrit les animaux.");
+                System.out.println("Le maître du Zoo nourrit les animaux.");
                 System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
                 creature.manger();
             }
