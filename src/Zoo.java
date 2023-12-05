@@ -82,17 +82,20 @@ public class Zoo  {
         return jour;
     }
 
-    public static void lancerTimer() {
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                incrementerJour();
-            }
-        }, 60 * 1000, 60 * 1000);
-    }
+
+        public static void lancerTimer() {
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    // La tâche à effectuer à chaque intervalle
+                    incrementerJour();
+                }
+            }, 0, 1000); // Le deuxième argument est le délai initial, le troisième est l'intervalle en millisecondes
+        }
 
     public static int getJour() {
+
         return jour;
     }
 }
