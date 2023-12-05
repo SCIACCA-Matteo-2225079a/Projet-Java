@@ -12,11 +12,12 @@ public class Zoo  {
     private int nbCreatures;
     private Enclos[] enclosExist;
     private int nbEnclos;
-    public Creature creature;;
+    public Creature creature;
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
+    private int nbMaxEnclos;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres, int jour)
+    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres/*, int jour*/)
     {
 
 
@@ -25,7 +26,7 @@ public class Zoo  {
         this.nbCreatures=nbcrea;
         this.nbEnclos = nbEnclos;
         this.creaturePres= creaturePres;
-        this.jour = jour;
+        //this.jour = jour;
     }
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
@@ -92,11 +93,18 @@ public class Zoo  {
             public void run() {
                 incrementerJour();
             }
-        }, 0, 60*1000); // Le deuxième argument est le délai initial, le troisième est l'intervalle en millisecondes
+        }, 60*1000, 60*1000); // Le deuxième argument est le délai initial, le troisième est l'intervalle en millisecondes
     }
 
     public static int getJour() {
 
         return jour;
     }
+
+    public int nbMaxEnclos() {
+
+        return nbMaxEnclos;
+    }
+
+
 }

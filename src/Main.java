@@ -27,7 +27,7 @@ public class Main {
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
         Enclos enclos2 = new Enclos("Grotte", 60,8,ListecreaEnclos2);
-        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea, 1);
+        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea/*, 1*/);
         Zoo.lancerTimer();
         enclos.ajouterCreature(creature);
         enclos.ajouterCreature(creature2);
@@ -46,6 +46,7 @@ public class Main {
 
 
         System.out.println("Bonjour je suis "+ maitre);
+        System.out.println("On est dans le jour " + Zoo.getJour());
 
         // Entrée un lettre au clavier
         System.out.println("Quelle action voulez-vous faire ?");
@@ -110,6 +111,8 @@ public class Main {
         System.out.println(" ");
 
         maitre.examinerEnclos(enclos2);
+
+
 
         }
 }
