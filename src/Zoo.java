@@ -89,7 +89,7 @@ public class Zoo  {
             public void run() {
                 incrementerJour();
             }
-        }, 0, 60 * 1000);
+        }, 60 * 1000, 60 * 1000);
     }
 
     public static int getJour() {
