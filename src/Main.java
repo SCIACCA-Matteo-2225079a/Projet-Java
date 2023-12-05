@@ -1,5 +1,6 @@
 package src;
 
+
 import java.util.ArrayList;
 //Ceci importe la classe Scanner du package java.util
 import java.util.Scanner;
@@ -48,6 +49,56 @@ public class Main {
 
         // Entrée un lettre au clavier
         System.out.println("Quelle action voulez-vous faire ?");
+        for (int i = 0; i < ListeCrea.size(); i++) {
+            maitre.nourrir(ListeCrea.get(i));
+        }
+        while (true) {
+            System.out.println("Quelle action voulez-vous faire ? (d pour se déplacer, f pour quitter)");
+            String action = sc.nextLine();
+
+            if (action.equals("t")) {
+                System.out.println("Utilisez les touches fléchées pour vous déplacer (q pour quitter le déplacement)");
+
+                // Attend l'entrée des touches fléchées
+                while (true) {
+                    char move = sc.next().charAt(0);
+
+                    // TODO: Ajoutez ici la logique pour gérer le déplacement avec les touches fléchées
+                    // Vous pouvez ajuster les coordonnées du maître du zoo en fonction des touches.
+                    // Par exemple, utilisez 'w' pour monter, 'a' pour aller à gauche, 's' pour descendre, 'd' pour aller à droite.
+                    // Lorsque l'utilisateur appuie sur 'q', quittez la boucle interne
+                    maitre.seDeplacer(move);
+
+                    if (move == 'c') {
+                        break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
+                    }
+                }
+            } else if (action.equals("f")) {
+                break; // Quitte la boucle principale si l'utilisateur choisit de quitter
+            } else {
+                System.out.println("Commande non reconnue. Veuillez réessayer.");
+            }
+        }
+
+        // Ferme le scanner après utilisation
+        sc.close();
+
+/*
+        System.out.println("Ecrit ton nom");
+        nom = sc.nextLine();
+        maitre.setNom(nom);
+        System.out.println("Choisis ton genre");
+        genre= sc.nextLine();
+        maitre.setSexe(genre);
+        System.out.println("Choisis ton age");
+        age = sc.nextInt();
+        maitre.setAge(age);*/
+
+
+        System.out.println("Bonjour je suis "+ maitre);
+
+        // Entrée un lettre au clavier
+        System.out.println("Quelle action voulez-vous faire ?");
         //String str = sc.nextLine();
         maitre.examinerEnclos(enclos);
         System.out.println(" ");
@@ -60,7 +111,5 @@ public class Main {
 
         maitre.examinerEnclos(enclos2);
 
-
         }
-
 }

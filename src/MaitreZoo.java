@@ -8,7 +8,6 @@ public class MaitreZoo {
     private String nom;
     private String sexe;
     private int age;
-    public Creature creature;
 
 
     public MaitreZoo(String nom, String sexe, int age )
@@ -115,9 +114,22 @@ public class MaitreZoo {
             System.out.println("La créature n'est pas présente dans l'enclos actuel. Aucun transfert nécessaire.");
         }
     }
-    public void seDeplacer()
-    {}
+    public void seDeplacer(char touche)
+    {
+         // Ajustez la valeur du déplacement selon vos besoins
 
+        if (touche == 'q' ) {
+            System.out.println("Le maitre se déplace à gauche");
+        } else if (touche == 'd' ) {
+            System.out.println("Le maitre se déplace à droite");
+        } else if (touche == 'z') {
+            System.out.println("Le maitre se déplace en haut");
+        } else if (touche == 's') {
+            System.out.println("Le maitre se déplace en bas");
+        }
+    }
+
+    public void actionMaitre(char touche){}
     @Override
     public String toString() {
         return
