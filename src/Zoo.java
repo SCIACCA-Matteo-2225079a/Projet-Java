@@ -16,6 +16,7 @@ public class Zoo  {
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
     private int nbMaxEnclos;
+    private int afficherNbCreatures;
 
     public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
@@ -107,5 +108,9 @@ public class Zoo  {
         return nbMaxEnclos;
     }
 
-
+    @Override
+    public String toString() {
+        return "Bienvenue à " + nom;
+    }
 }
+
