@@ -1,7 +1,8 @@
 package src;
 
-
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Zoo {
 
@@ -12,8 +13,9 @@ public class Zoo {
     private int enclosExist;
     public Creature creature;
     private ArrayList<Creature> creaturePres;
+    private static int jour = 1;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres)
+    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres, int jour)
     {
 
 
@@ -22,6 +24,7 @@ public class Zoo {
         this.nbCreatures=nbcrea;
         this.enclosExist = enclos;
         this.creaturePres= creaturePres;
+        this.jour = jour;
     }
 
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
@@ -61,8 +64,6 @@ public class Zoo {
     }
 
 
-
-
     public int afficherNbCreatures() {
 
         return 0;
@@ -73,4 +74,22 @@ public class Zoo {
         return creaturePres.get(0);
     }
 
+    public static int incrementerJour() {
+        jour++;
+        return jour;
+    }
+
+    public static void lancerTimer() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                incrementerJour();
+            }
+        }, 0, 60 * 1000);
+    }
+
+    public static int getJour() {
+        return jour;
+    }
 }
