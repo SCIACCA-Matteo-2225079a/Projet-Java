@@ -28,7 +28,7 @@ public class Main {
         enclos.ajouterCreature(creature2);
 
 
-
+/*
         System.out.println("Ecrit ton nom");
         nom = sc.nextLine();
         maitre.setNom(nom);
@@ -37,13 +37,14 @@ public class Main {
         maitre.setSexe(genre);
         System.out.println("Choisis ton age");
         age = sc.nextInt();
-        maitre.setAge(age);
+        maitre.setAge(age);*/
 
 
         System.out.println("Bonjour je suis "+ maitre);
+        creature.emettreUnSon("GRrrrrr");
         // Entrée un lettre au clavier
         System.out.println("Quelle action voulez-vous faire ?");
-        String str = sc.nextLine();
+        //String str = sc.nextLine();
 
                maitre.transfer(enclos,creature);
                System.out.println(" ");
@@ -73,9 +74,8 @@ public class Main {
 
 
         //Modifie le nombre d'enclos selon le nombre entrée au clavier 
-        int nb = sc.nextInt();
-        zoo.setEnclosExist(nb);
-        System.out.println(zoo.getEnclosExist());
+        //int nb = sc.nextInt();
+        zoo.afficherNbCreatures();
 
     }
 }

@@ -3,24 +3,25 @@ package src;
 
 import java.util.ArrayList;
 
-public class Zoo {
+public class Zoo  {
 
 
     private String nom;
     private MaitreZoo maitre;
     private int nbCreatures;
-    private int enclosExist;
-    public Creature creature;
+    private Enclos[] enclosExist;
+    private int nbEnclos;
+    public Creature creature;;
     private ArrayList<Creature> creaturePres;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres)
+    public Zoo(String nom, MaitreZoo maitre ,int nbcrea, int nbEnclos, ArrayList<Creature> creaturePres)
     {
 
 
         this.nom = nom;
         this.maitre= maitre;
         this.nbCreatures=nbcrea;
-        this.enclosExist = enclos;
+        this.nbEnclos = nbEnclos;
         this.creaturePres= creaturePres;
     }
 
@@ -50,14 +51,14 @@ public class Zoo {
         this.nbCreatures = nbCreatures;
     }
 
-    public int getEnclosExist() {
+    public int getNbEnclos() {
 
-        return enclosExist;
+        return nbEnclos;
     }
 
-    public void setEnclosExist(int enclosExist) {
+    public void setNbEnclos(int nbEnclos) {
 
-        this.enclosExist = enclosExist;
+        this.nbEnclos = nbEnclos;
     }
 
 
@@ -65,12 +66,12 @@ public class Zoo {
 
     public int afficherNbCreatures() {
 
-        return 0;
+        return nbCreatures;
     }
 
-    public Creature afficherCreaturesPres() {
+    public ArrayList<Creature>  afficherCreaturesPres() {
 
-        return creaturePres.get(0);
+        return creaturePres;
     }
 
 }
