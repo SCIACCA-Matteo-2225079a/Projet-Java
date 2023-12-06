@@ -23,9 +23,10 @@ public class Zoo  {
         this.nom = nom;
         this.maitre= maitre;
         this.nbCreatures=nbCrea;
-        this.creaturePres= creaturePres;
+        this.creaturePres = new ArrayList<>();
         this.enclosExist=enclosExist;
         this.nbMaxEnclos = nbMaxEnclos;
+
         //this.jour = jour;
     }
 
@@ -55,6 +56,8 @@ public class Zoo  {
 
         return nbCreatures;
     }
+
+
 
     public void setNbCreatures(int nbCreatures) {
 
