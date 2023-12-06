@@ -69,6 +69,7 @@ public class Zoo  {
     public int afficherNbCreatures() {
 
         return nbCreatures;
+
     }
 
     public ArrayList<Creature>  afficherCreaturesPres() {
