@@ -22,8 +22,8 @@ public class Main {
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
-        Enclos enclosParDéfaut = new Enclos("Tanière", 32,6,ListeCrea,4);
-        Enclos enclos = enclosParDéfaut.genererNouvelleEnclos();
+        Enclos enclosParDefaut = new Enclos("Tanière", 32,6,ListeCrea,4);
+        Enclos enclos = enclosParDefaut.genererNouvelleEnclos();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,5);
         Zoo.lancerTimer();
         System.out.println(zoo );
@@ -81,6 +81,7 @@ public class Main {
                             '\n'+"- a pour ajouter une créature"+
                             '\n'+"- o pour ajouter un enclos"+
                             '\n'+"- p pour voir le nombre de créatures présentes dans le zoo"+
+                            '\n'+"- h pour savoir quel jour on est"+
                             '\n'+"- c pour quitter l'interface action");
 
                     char interragir = sc.next().charAt(0);
@@ -91,7 +92,7 @@ public class Main {
                         }
                     }
                     else if (interragir == 't') {
-                        maitre.transfer(enclos,enclosParDéfaut,creature);
+                        maitre.transfer(enclos,enclosParDefaut,creature);
                     }
                     else if (interragir == 'e') {
 
@@ -115,7 +116,10 @@ public class Main {
                         zoo.ajouterEnclos(enclos);
                     }
                     else if (interragir == 'p') {
-                        zoo.getNbCreatures();
+                        System.out.println("Il y a " + zoo.getNbCreatures() + " créatures dans le zoo");
+                    }
+                    else if (interragir == 'h') {
+                        System.out.println("Nous sommes dans le jour " + Zoo.getJour());
                     }
 
 
