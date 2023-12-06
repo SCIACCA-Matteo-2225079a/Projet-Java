@@ -1,3 +1,5 @@
+package src.main.java;
+
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -148,44 +150,38 @@ public class Creature {
     }
 
     public String emettreUnSon(String son) {
-        if (getNom()=="Lycanthropes")
-        {
+        if (getNom().equals("Lycanthropes")) {
             System.out.println("Aouuuuh");
-        }
-        else if (getNom()=="Licornes")
-        {
+            return "Aouuuuh";
+        } else if (getNom().equals("Licornes")) {
             System.out.println("Hiiii");
-        }
-        else if (getNom()=="Nymphes")
-        {
+            return "Hiiii";
+        } else if (getNom().equals("Nymphes")) {
             System.out.println("Ploc-ploc");
-        }
-        else if (getNom()=="Krakens")
-        {
+            return "Ploc-ploc";
+        } else if (getNom().equals("Krakens")) {
             System.out.println("Lap-lap");
-        }
-        else if (getNom()=="Sirènes")
-        {
+            return "Lap-lap";
+        } else if (getNom().equals("Sirènes")) {
             System.out.println("Chant");
-        }
-        else if (getNom()=="Mégalodons")
-        {
+            return "Chant";
+        } else if (getNom().equals("Mégalodons")) {
             System.out.println("Aaaaaah");
-        }
-        else if (getNom()=="Phénix")
-        {
+            return "Aaaaaah";
+        } else if (getNom().equals("Phénix")) {
             System.out.println("Flap-flap-flap");
-        }
-        else if (getNom()=="Dragons")
-        {
+            return "Flap-flap-flap";
+        } else if (getNom().equals("Dragons")) {
             System.out.println("Grrrrr");
+            return "Grrrrr";
         }
 
         return son;
     }
 
 
-    
+
+
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
             System.out.println(getNom()+" va être soigné. "+ getIndicateurDeSante());

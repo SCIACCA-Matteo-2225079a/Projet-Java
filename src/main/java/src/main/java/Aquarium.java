@@ -1,3 +1,5 @@
+package src.main.java;
+
 import java.util.ArrayList;
 
 public class Aquarium extends Enclos {
