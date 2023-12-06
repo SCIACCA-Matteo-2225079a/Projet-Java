@@ -45,7 +45,6 @@ public class Main {
 
 
         System.out.println("Bonjour je suis "+ maitre);
-        System.out.println("On est dans le jour " + Zoo.getJour());
 
         // Entrée un lettre au clavier
         while (true) {
@@ -72,6 +71,7 @@ public class Main {
             {
                 // Attend l'entrée des touches fléchées
                 while (true) {
+                    System.out.println("Nous sommes dans le jour " + Zoo.getJour());
                     System.out.println("Utilisez les touches pour effectuer une action"+
                             '\n'+"- n pour nourrir les créatures d'un enclos"+
                             '\n'+"- t pour tranfèrer les créatures dans un autre enclos"+
@@ -118,9 +118,7 @@ public class Main {
                     else if (interragir == 'p') {
                         System.out.println("Il y a " + zoo.getNbCreatures() + " créatures dans le zoo");
                     }
-                    else if (interragir == 'h') {
-                        System.out.println("Nous sommes dans le jour " + Zoo.getJour());
-                    }
+
 
 
                     else if (interragir == 'c') {
