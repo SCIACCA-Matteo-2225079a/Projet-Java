@@ -88,7 +88,7 @@ public class Zoo  {
             public void run() {
                 incrementerJour();
             }
-        }, 60*1000, 60*1000); // Le deuxième argument est le délai initial, le troisième est l'intervalle en millisecondes
+        }, 10*1000, 10*1000); // Le deuxième argument est le délai initial, le troisième est l'intervalle en millisecondes
     }
 
     public static int getJour() {
