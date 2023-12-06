@@ -189,8 +189,9 @@ public class Creature {
     
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
-            System.out.println(getNom()+" va être soigné."+ getIndicateurDeSante());
-            this.indicateurDeSante = 100;
+            System.out.println(getNom()+" va être soigné. "+ getIndicateurDeSante());
+            indicateurDeSante = 100;
+            setIndicateurDeSante(indicateurDeSante);
             System.out.println(getNom()+" est soigné. "+ getIndicateurDeSante());
         }
         return indicateurDeSante;
@@ -261,11 +262,8 @@ public class Creature {
         setTaille(tailleAl);
         boolean faim = random.nextBoolean();
         setIndicateurDeFaim(faim);
-        boolean sommeil = random.nextBoolean();
-        setIndicateurDeSommeil(sommeil);
-        boolean dormirAl = random.nextBoolean();
-        setDormir(dormirAl);
-        int santeAl = random.nextInt(100)+50;
+
+        int santeAl = random.nextInt(100);
         setIndicateurDeSante(santeAl);
         boolean maladeAl = random.nextBoolean();
         setMalade(maladeAl);
