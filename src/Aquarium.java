@@ -6,8 +6,8 @@ public class Aquarium extends Enclos {
     private double profondeurBassin;
     private double saliniteEau;
 
-    public Aquarium(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature> creaturesPres, double profondeurBassin, double saliniteEau) {
-        super(nom, superficie, nbMaxCreatures, creaturesPres);
+    public Aquarium(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature> creaturesPres, int proprete,double profondeurBassin, double saliniteEau) {
+        super(nom, superficie, nbMaxCreatures, creaturesPres, proprete);
         this.profondeurBassin = profondeurBassin;
         this.saliniteEau = saliniteEau;
     }

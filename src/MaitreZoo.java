@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Définition des statistiques nécéssaires au maître du Zoo.
@@ -52,11 +53,7 @@ public class MaitreZoo {
     public void examinerEnclos(Enclos enclos) {
         System.out.println("Le maître du Zoo examine l'enclos.");
 
-        System.out.println(enclos.getNom());
-        System.out.println(enclos.getSuperficie());
-        System.out.println(enclos.getNbCreatures()+ "/ "+ enclos.getNbMaxCreatures());
-        System.out.println(enclos.getCreaturesPres());
-        System.out.println(enclos.getProprete());
+        System.out.println(enclos);
 
         // Ajoutez d'autres vérifications en fonction de vos besoins...
 
@@ -82,21 +79,22 @@ public class MaitreZoo {
         }
     }
 
-    public boolean nourrir(Creature creature) {
+    public boolean nourrir(Creature creature, Enclos enclos) {
 
 
         // Vérifier si la créature est null avant d'appeler ses méthodes
         if (creature != null) {
 
             // Exemple : Vérifier si la créature a besoin de nourriture
-            if (creature.isIndicateurDeFaim()) {
-                System.out.println("Le maître du Zoo nourrit les animaux.");
-                System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
-                creature.manger();
-            }
-            else {
-                System.out.println(creature.getNom()+" n'a pas faim.");
-            }
+                if (creature.isIndicateurDeFaim()==true) {
+                    System.out.println("Le maître du Zoo nourrit les animaux.");
+                    System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
+                    creature.manger();
+                }
+                else {
+                    System.out.println(creature.getNom()+" n'a pas faim.");
+                }
+
 
             // Ajoutez d'autres opérations liées à l'alimentation en fonction de vos besoins...
         } else {

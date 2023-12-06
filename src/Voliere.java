@@ -5,8 +5,8 @@ public class Voliere extends Enclos {
 
     private double hauteur;
 
-    public Voliere(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature> creaturesPres, double hauteur) {
-        super(nom, superficie, nbMaxCreatures, creaturesPres);
+    public Voliere(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature> creaturesPres, int proprete,double hauteur) {
+        super(nom, superficie, nbMaxCreatures, creaturesPres,proprete);
         this.hauteur = hauteur;
     }
 
@@ -22,6 +22,5 @@ public class Voliere extends Enclos {
     public String afficherCaracteristiques() {
         return super.afficherCaracteristiques() + " Hauteur de la volière : " + hauteur;
     }
-
 
 }

@@ -149,6 +149,38 @@ public class Creature {
     }
 
     public String emettreUnSon(String son) {
+        if (getNom()=="Lycanthropes")
+        {
+            System.out.println("Aouuuuh");
+        }
+        else if (getNom()=="Licornes")
+        {
+            System.out.println("Hiiii");
+        }
+        else if (getNom()=="Nymphes")
+        {
+            System.out.println("Ploc-ploc");
+        }
+        else if (getNom()=="Krakens")
+        {
+            System.out.println("Lap-lap");
+        }
+        else if (getNom()=="Sirènes")
+        {
+            System.out.println("Chant");
+        }
+        else if (getNom()=="Mégalodons")
+        {
+            System.out.println("Aaaaaah");
+        }
+        else if (getNom()=="Phénix")
+        {
+            System.out.println("Flap-flap-flap");
+        }
+        else if (getNom()=="Dragons")
+        {
+            System.out.println("Grrrrr");
+        }
 
         return son;
     }
@@ -200,15 +232,15 @@ public class Creature {
         Random random = new Random();
 
         ArrayList<String> especes = new ArrayList<>();
-        especes.add("lycanthropes");
-        especes.add("licornes");
-        especes.add("nymphes");
-        especes.add("krakens");
-        especes.add("sirènes");
-        especes.add("mégalodons");
-        especes.add("phénix");
-        especes.add("dragons");
-        int nameEspece = random.nextInt(especes.size())+0;
+        especes.add("Lycanthropes");
+        especes.add("Licornes");
+        especes.add("Nymphes");
+        especes.add("Krakens");
+        especes.add("Sirènes");
+        especes.add("Mégalodons");
+        especes.add("Phénix");
+        especes.add("Dragons");
+        int nameEspece = random.nextInt(especes.size());
         setNom(especes.get(nameEspece));
 
         int genreIndex = random.nextInt(1)+0;
@@ -243,6 +275,19 @@ public class Creature {
         return newCreature;
     }
 
+    public void mourir()
+    {
+        Random random= new Random();
+        int mortViellesse = random.nextInt(130)+80;
+        if (age == mortViellesse){
+            System.out.println(getNom()+" est morte de vieillesse.");
+        }
+        else if (indicateurDeSante == 0)
+        {
+            System.out.println(getNom()+" est morte d'un maladie.");
+
+        }
+    }
     @Override
     public String toString() {
         return  "Espèce : " + nom + '\n' + "Sexe : " + sexe + '\n' + "Poids : " + poids + '\n'

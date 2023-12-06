@@ -2,10 +2,8 @@ package src;
 
 
 import java.util.ArrayList;
-//Ceci importe la classe Scanner du package java.util
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 /**
  * Exécution des fonctions.
@@ -23,10 +21,9 @@ public class Main {
         Creature creatureParDéfaut = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
         Creature creature = creatureParDéfaut.genererNouvelleCréature();
         ArrayList<Creature> ListeCrea = new ArrayList<>();
-        ArrayList<Creature> ListecreaEnclos2 = new ArrayList<>();
         ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
-        Enclos enclosParDéfaut = new Enclos("Tanière", 32,6,ListeCrea);
+        Enclos enclosParDéfaut = new Enclos("Tanière", 32,6,ListeCrea,4);
         Enclos enclos = enclosParDéfaut.genererNouvelleEnclos();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,2);
         Zoo.lancerTimer();
@@ -90,7 +87,7 @@ public class Main {
 
                     if (interragir == 'n') {
                         for (int i = 0; i < ListeCrea.size(); i++) {
-                            maitre.nourrir(ListeCrea.get(i));
+                            maitre.nourrir(ListeCrea.get(i),enclos);
                         }
                     }
                     else if (interragir == 't') {
@@ -104,7 +101,8 @@ public class Main {
                         maitre.nettoyage(enclos);
                     }
                     else if (interragir == 's') {
-                        creature.etreSoigne();
+                        for (int i = 0; i < ListeCrea.size(); i++) {
+                        creature.etreSoigne();}
                     }
                     else if (interragir == 'a') {
                         enclos.ajouterCreature(creature);
