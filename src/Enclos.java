@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Enclos {
 
@@ -90,24 +91,19 @@ public class Enclos {
         // Vérifier si l'enclos a atteint sa capacité maximale
         if (nbCreatures < nbMaxCreatures) {
             // Créer une nouvelle créature en utilisant les paramètres de la méthode
-            /*Creature newCreature = new Creature(creature.getNom(),creature.getSexe(),creature.getPoids(),creature.getTaille(),
-                    creature.getIndicateurDeSante(),creature.isIndicateurDeFaim(),creature.isIndicateurDeSommeil(),
-                    creature.isDormir(),creature.getIndicateurDeSante(),creature.isMalade());*/
+            Creature newCreature = creature.genererNouvelleCréature();
 
             // Ajouter la créature à la liste des créatures présentes
-            creaturesPres.add(creature);
+            creaturesPres.add(newCreature);
 
             // Incrémenter le nombre total de créatures
             nbCreatures++;
 
-            System.out.println("La créature " + creature.getNom() + " a été ajoutée à l'enclos.");
+            System.out.println("La créature " + newCreature.getNom() + " a été ajoutée à l'enclos.");
         } else {
             System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
         }
     }
-
-
-
 
     public void enleverCreature(Creature creature) {
         if (creaturesPres.contains(creature)) {
@@ -127,6 +123,45 @@ public class Enclos {
             }
         }
         return false;
+    }
+    public void typeEnclos()
+    {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> typeEnclos = new ArrayList<>();
+        typeEnclos.add("Cage");
+        typeEnclos.add("Volière");
+        typeEnclos.add("Aquarium");
+        System.out.println("Quel type d'enclos voulez-vous ?" + '\n'+"-Cage : 1"+'\n'+"-Volière : 2"+'\n'+"-Aquarium : 3");
+        while (true)
+        {
+            int type = sc.nextInt();
+            if (type == 1)
+            {
+                setNom(typeEnclos.get(0));
+                break;
+            }
+            else if (type == 2)
+            {
+                setNom(typeEnclos.get(1));
+                break;
+            }
+            else if (type == 3)
+            {
+                setNom(typeEnclos.get(2));
+                break;
+            }
+            else
+            {
+                System.out.println("Erreur : Choisis un nombre entre 1 et 3 seulement");
+            }
+        }
+    }
+    public  Enclos genererNouvelleEnclos()
+    {
+
+        typeEnclos();
+        Enclos newEnclos  = new Enclos(getNom(),getSuperficie(),getNbMaxCreatures(),getCreaturesPres());
+        return newEnclos;
     }
 
 }

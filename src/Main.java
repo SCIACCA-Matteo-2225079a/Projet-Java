@@ -20,20 +20,20 @@ public class Main {
         String genre;
 
         // TODO Auto-generated method stub
-        Creature creature = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
-        Creature creature2 = new Creature("Dragon","homme",32,5,19,true,false,false,50,false);
+        Creature creatureParDéfaut = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
+        Creature creature = creatureParDéfaut.genererNouvelleCréature();
         ArrayList<Creature> ListeCrea = new ArrayList<>();
         ArrayList<Creature> ListecreaEnclos2 = new ArrayList<>();
         ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
-        Enclos enclos = new Enclos("Tanière", 32,6,ListeCrea);
-        Enclos enclos2 = new Enclos("Grotte", 60,8,ListecreaEnclos2);
+        Enclos enclosParDéfaut = new Enclos("Tanière", 32,6,ListeCrea);
+        Enclos enclos = enclosParDéfaut.genererNouvelleEnclos();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea,enclosArrayList,10);
         Zoo.lancerTimer();
-        enclos.ajouterCreature(creature);
-        enclos.ajouterCreature(creature2);
+        System.out.println(zoo );
         enclosArrayList.add(enclos);
-        enclosArrayList.add(enclos2);
+        enclos.ajouterCreature(creature);
+
 
 
 
@@ -82,6 +82,8 @@ public class Main {
                             '\n'+"- e pour examiner un enclos"+
                             '\n'+"- m pour nettoyer un enclos"+
                             '\n'+"- s pour soigner une créature"+
+                            '\n'+"- a pour ajouter une créature"+
+                            '\n'+"- o pour ajouter un enclos"+
                             '\n'+"- c pour quitter l'interface action");
 
                     char interragir = sc.next().charAt(0);
@@ -92,7 +94,7 @@ public class Main {
                         }
                     }
                     else if (interragir == 't') {
-                        maitre.transfer(enclos,enclos2,creature);
+                        maitre.transfer(enclos,enclosParDéfaut,creature);
                     }
                     else if (interragir == 'e') {
                         maitre.examinerEnclos(enclos);
@@ -103,6 +105,13 @@ public class Main {
                     else if (interragir == 's') {
                         creature.etreSoigne();
                     }
+                    else if (interragir == 'a') {
+                        enclos.ajouterCreature(creature);
+                    }
+                    else if (interragir == 'o') {
+                        enclos.genererNouvelleEnclos();
+                    }
+
 
                     else if (interragir == 'c') {
                         break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement

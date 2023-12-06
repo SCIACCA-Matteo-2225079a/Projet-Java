@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 /**
  * Définition des statistiques nécéssaires au maître du Zoo.
  */
@@ -106,15 +108,32 @@ public class MaitreZoo {
         System.out.println(creature.getNom()+" a été nourris.");
         return false;
     }
+    public void ajouterCreatureDansEnclos(Enclos enclos, Creature creature) {
+        // Vérifier si l'enclos a atteint sa capacité maximale
+        if (enclos.getNbCreatures() < enclos.getNbCreatures()) {
 
+            // Ajouter la créature à la liste des créatures présentes
+            enclos.getCreaturesPres().add(creature);
+
+            // Incrémenter le nombre total de créatures
+            enclos.setNbCreatures(+1);
+
+            System.out.println("La créature " + creature.getNom() + " a été ajoutée à l'enclos.");
+        } else {
+            System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
+        }
+    }
     public void transfer(Enclos enclosActuel, Enclos nouvelEnclos, Creature creature) {
         // Vérifier si la créature est présente dans l'enclos actuel
+        ArrayList<Creature> Transfere= new ArrayList<>();
         if (enclosActuel.contientCreature(creature)) {
             System.out.println("La créature va être transférée dans un autre enclos.");
+            Transfere.add(creature);
             // Enlever la créature de l'enclos actuel
             enclosActuel.enleverCreature(creature);
             // Ajouter la créature au nouvel enclos
-            nouvelEnclos.ajouterCreature(creature);
+            ajouterCreatureDansEnclos(nouvelEnclos,Transfere.get(0));
+            Transfere.remove(0);
             System.out.println("La créature a été transférée avec succès dans le nouvel enclos.");
         } else {
             System.out.println("La créature n'est pas présente dans l'enclos actuel. Aucun transfert nécessaire.");

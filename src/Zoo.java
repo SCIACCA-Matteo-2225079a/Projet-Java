@@ -83,7 +83,6 @@ public class Zoo  {
 
     public static int incrementerJour() {
         jour++;
-
         return jour;
     }
 

@@ -1,5 +1,6 @@
 package src;
-
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * Définition de toutes les statistiques nécéssaires pour chaque animal.
  */
@@ -16,6 +17,7 @@ public class Creature {
     private boolean dormir;
     private int indicateurDeSante = 100;
     private boolean malade;
+
 
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
                     boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante, boolean malade) {
@@ -155,7 +157,7 @@ public class Creature {
     
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
-            System.out.println(getNom()+" va être soigné.");
+            System.out.println(getNom()+" va être soigné."+ getIndicateurDeSante());
             this.indicateurDeSante = 100;
             System.out.println(getNom()+" est soigné. "+ getIndicateurDeSante());
         }
@@ -189,11 +191,56 @@ public class Creature {
     public void maladie() {
         if (this.malade == true) {
             System.out.println("L'animal est malade");
-            indicateurDeSante = indicateurDeSante - 25;
+            indicateurDeSante = indicateurDeSante - 1;
         }
-            else if (this.malade == false) {
-                System.out.println("L'animal n'est pas malade");
-            }
+    }
+
+    public  Creature genererNouvelleCréature()
+    {
+        Random random = new Random();
+
+        ArrayList<String> especes = new ArrayList<>();
+        especes.add("lycanthropes");
+        especes.add("licornes");
+        especes.add("nymphes");
+        especes.add("krakens");
+        especes.add("sirènes");
+        especes.add("mégalodons");
+        especes.add("phénix");
+        especes.add("dragons");
+        int nameEspece = random.nextInt(especes.size())+0;
+        setNom(especes.get(nameEspece));
+
+        int genreIndex = random.nextInt(1)+0;
+        if (genreIndex == 0)
+        {
+            setSexe("Male");
+        }
+        else
+        {
+            setSexe("Femelle");
+        }
+
+        int ageAl = random.nextInt(100) + 1;
+        setAge(ageAl);
+        int poidsAl = random.nextInt(100)+20;
+        setPoids(poidsAl);
+        int tailleAl = random.nextInt(10) + 1;
+        setTaille(tailleAl);
+        boolean faim = random.nextBoolean();
+        setIndicateurDeFaim(faim);
+        boolean sommeil = random.nextBoolean();
+        setIndicateurDeSommeil(sommeil);
+        boolean dormirAl = random.nextBoolean();
+        setDormir(dormirAl);
+        int santeAl = random.nextInt(100)+50;
+        setIndicateurDeSante(santeAl);
+        boolean maladeAl = random.nextBoolean();
+        setMalade(maladeAl);
+
+        Creature newCreature  = new Creature(getNom(), getSexe(), getPoids(), getTaille(), getAge(), isIndicateurDeFaim(),
+        isIndicateurDeSommeil(), isDormir(), getIndicateurDeSante(),isMalade());
+        return newCreature;
     }
 
     @Override
