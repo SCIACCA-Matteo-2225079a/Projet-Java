@@ -81,6 +81,7 @@ public class Main {
                             '\n'+"- s pour soigner une créature"+
                             '\n'+"- a pour ajouter une créature"+
                             '\n'+"- o pour ajouter un enclos"+
+                            '\n'+"- p pour voir le nombre de créatures présentes dans le zoo"+
                             '\n'+"- c pour quitter l'interface action");
 
                     char interragir = sc.next().charAt(0);
@@ -113,6 +114,9 @@ public class Main {
                     }
                     else if (interragir == 'o') {
                         zoo.ajouterEnclos(enclos);
+                    }
+                    else if (interragir == 'p') {
+                        zoo.getNbCreatures();
                     }
 
 
