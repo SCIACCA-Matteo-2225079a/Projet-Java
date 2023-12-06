@@ -17,12 +17,12 @@ public class Zoo  {
     private int nbMaxEnclos;
     private int afficherNbCreatures;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
+    public Zoo(String nom, MaitreZoo maitre , int nbCrea, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
 
         this.nom = nom;
         this.maitre= maitre;
-        this.nbCreatures=nbcrea;
+        this.nbCreatures=nbCrea;
         this.creaturePres= creaturePres;
         this.enclosExist=enclosExist;
         this.nbMaxEnclos = nbMaxEnclos;
@@ -47,6 +47,11 @@ public class Zoo  {
    }
 
     public int getNbCreatures() {
+        int nbCreatures = 0;
+
+        for (Enclos enclos : enclosExist) {
+            nbCreatures += enclos.getNbCreatures();
+        }
 
         return nbCreatures;
     }
@@ -61,6 +66,7 @@ public class Zoo  {
     public int afficherNbCreatures() {
 
         return nbCreatures;
+
     }
 
     public ArrayList<Creature>  afficherCreaturesPres() {

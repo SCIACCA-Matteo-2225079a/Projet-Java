@@ -83,18 +83,16 @@ public class MaitreZoo {
 
         // Vérifier si la créature est null avant d'appeler ses méthodes
         if (creature != null) {
-
             // Exemple : Vérifier si la créature a besoin de nourriture
                 if (creature.isIndicateurDeFaim()==true) {
                     System.out.println("Le maître du Zoo nourrit les animaux.");
-                    System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
                     creature.manger();
+                    System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
+
                 }
                 else {
                     System.out.println(creature.getNom()+" n'a pas faim.");
                 }
-
-
             // Ajoutez d'autres opérations liées à l'alimentation en fonction de vos besoins...
         } else {
             System.out.println("Erreur : La créature est null. Impossible de nourrir.");
