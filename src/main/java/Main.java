@@ -114,7 +114,7 @@ public class Main {
                         zoo.ajouterEnclos(enclos);
                     }
                     else if (interragir == 'p') {
-                        zoo.getNbCreatures();
+                        System.out.println("Il y a " + zoo.getNbCreatures() + " créatures dans le zoo");
                     }
                     else if (interragir == 'h') {
                         System.out.println("Nous sommes dans le jour " + Zoo.getJour());
