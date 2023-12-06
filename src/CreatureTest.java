@@ -7,7 +7,7 @@ class CreatureTest {
     @org.junit.jupiter.api.Test
     void getNom() {
     }
-
+  
     @org.junit.jupiter.api.Test
     void setNom() {
     }
