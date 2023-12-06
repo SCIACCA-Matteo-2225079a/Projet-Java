@@ -32,7 +32,7 @@ public class Main {
         enclos.ajouterCreature(creature);
 
 
-
+    /*
 
         System.out.println("Ecrit ton nom");
         nom = sc.nextLine();
@@ -42,7 +42,7 @@ public class Main {
         maitre.setSexe(genre);
         System.out.println("Choisis ton age");
         age = sc.nextInt();
-        maitre.setAge(age);
+        maitre.setAge(age);*/
 
 
         System.out.println("Bonjour je suis "+ maitre);
@@ -94,8 +94,11 @@ public class Main {
                         maitre.transfer(enclos,enclosParDéfaut,creature);
                     }
                     else if (interragir == 'e') {
-                        maitre.examinerEnclos(enclos);
+
                         System.out.println(zoo);
+                        for (int i = 0; i < enclosArrayList.size(); i++) {
+                            maitre.examinerEnclos(enclosArrayList.get(i));
+                        }
                     }
                     else if (interragir == 'm') {
                         maitre.nettoyage(enclos);

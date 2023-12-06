@@ -288,6 +288,9 @@ public class Creature {
 
         }
     }
+
+    public void mettreABas(){}
+
     @Override
     public String toString() {
         return  "Espèce : " + nom + '\n' + "Sexe : " + sexe + '\n' + "Poids : " + poids + '\n'

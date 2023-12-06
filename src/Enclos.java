@@ -154,6 +154,23 @@ public class Enclos {
             }
         }
     }
+
+    public void Etatpropete()
+    {
+        if (proprete>= 7)
+        {
+            System.out.println("bon");
+        }
+        else if (proprete< 7 && proprete > 3)
+        {
+            System.out.println("correct");
+        }
+        else
+        {
+            System.out.println("mauvais");
+        }
+
+    }
     public  Enclos genererNouvelleEnclos()
     {
 

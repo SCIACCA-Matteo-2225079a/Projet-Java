@@ -54,10 +54,9 @@ public class MaitreZoo {
         System.out.println("Le maître du Zoo examine l'enclos.");
 
         System.out.println(enclos);
-
         // Ajoutez d'autres vérifications en fonction de vos besoins...
-
-        // Exemple : Afficher un message après l'examen
+        enclos.Etatpropete();
+        // Afficher un message après l'examen
         System.out.println("Examen de l'enclos terminé.");
 
     }
