@@ -28,7 +28,7 @@ public class Main {
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
         Enclos enclosParDéfaut = new Enclos("Tanière", 32,6,ListeCrea);
         Enclos enclos = enclosParDéfaut.genererNouvelleEnclos();
-        Zoo zoo = new Zoo("Foires au monstres",maitre,8,6,ListeCrea,enclosArrayList,10);
+        Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,2);
         Zoo.lancerTimer();
         System.out.println(zoo );
         enclosArrayList.add(enclos);
@@ -98,6 +98,7 @@ public class Main {
                     }
                     else if (interragir == 'e') {
                         maitre.examinerEnclos(enclos);
+                        System.out.println(zoo);
                     }
                     else if (interragir == 'm') {
                         maitre.nettoyage(enclos);
@@ -109,7 +110,7 @@ public class Main {
                         enclos.ajouterCreature(creature);
                     }
                     else if (interragir == 'o') {
-                        enclos.genererNouvelleEnclos();
+                        zoo.ajouterEnclos(enclos);
                     }
 
 

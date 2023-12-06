@@ -11,20 +11,18 @@ public class Zoo  {
     private MaitreZoo maitre;
     private int nbCreatures;
     private ArrayList<Enclos> enclosExist;
-    private int nbEnclos;
-    public Creature creature;
+
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
     private int nbMaxEnclos;
     private int afficherNbCreatures;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbcrea, int enclos, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
+    public Zoo(String nom, MaitreZoo maitre , int nbcrea, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
 
         this.nom = nom;
         this.maitre= maitre;
         this.nbCreatures=nbcrea;
-        this.nbEnclos = enclos;
         this.creaturePres= creaturePres;
         this.enclosExist=enclosExist;
         this.nbMaxEnclos = nbMaxEnclos;
@@ -57,17 +55,6 @@ public class Zoo  {
 
         this.nbCreatures = nbCreatures;
     }
-
-    public int getNbEnclos() {
-
-        return nbEnclos;
-    }
-
-    public void setNbEnclos(int nbEnclos) {
-
-        this.nbEnclos = nbEnclos;
-    }
-
 
 
 
@@ -106,10 +93,23 @@ public class Zoo  {
 
         return nbMaxEnclos;
     }
+    public void ajouterEnclos(Enclos enclos) {
+        // Vérifier si l'enclos a atteint sa capacité maximale
+        if (enclosExist.size() < nbMaxEnclos) {
+            // Créer une nouvelle créature en utilisant les paramètres de la méthode
+            Enclos newEnclos = enclos.genererNouvelleEnclos();
 
+            // Ajouter la créature à la liste des créatures présentes
+            enclosExist.add(newEnclos);
+
+            System.out.println("L'Enclos " + newEnclos.getNom() + " a été ajoutée à Zoo.");
+        } else {
+            System.out.println("Le Zoo est plein, impossible d'ajouter une nouvel  enclos.");
+        }
+    }
     @Override
     public String toString() {
-        return "Bienvenue à " + nom;
+        return "Bienvenue à " + nom + "nombre d'enclos : "+ enclosExist.size();
     }
 }
 
