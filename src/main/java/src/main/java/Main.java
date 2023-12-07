@@ -81,7 +81,6 @@ public class Main {
                             '\n'+"- a pour ajouter une créature"+
                             '\n'+"- o pour ajouter un enclos"+
                             '\n'+"- p pour voir le nombre de créatures présentes dans le zoo"+
-                            '\n'+"- h pour savoir quel jour on est"+
                             '\n'+"- c pour quitter l'interface action");
 
                     char interragir = sc.next().charAt(0);
