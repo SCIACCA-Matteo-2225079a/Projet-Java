@@ -6,36 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZooTest {
 
-    @Test
-    void setCreaturePres() {
-    }
-
-    @Test
-    void getNom() {
-    }
-
-    @Test
-    void setNom() {
-    }
 
     @Test
     void maitre() {
-    }
-
-    @Test
-    void getNbCreatures() {
-    }
-
-    @Test
-    void setNbCreatures() {
-    }
-
-    @Test
-    void afficherNbCreatures() {
-    }
-
-    @Test
-    void afficherCreaturesPres() {
     }
 
     @Test
@@ -50,16 +23,9 @@ class ZooTest {
     void getJour() {
     }
 
-    @Test
-    void nbMaxEnclos() {
-    }
 
     @Test
     void ajouterEnclos() {
-    }
-
-    @Test
-    void testToString() {
     }
 
 

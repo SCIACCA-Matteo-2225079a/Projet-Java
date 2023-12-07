@@ -63,26 +63,6 @@ class EnclosTest {
     }
 
     @Test
-    void ajouterCreature() {
-    }
-
-    @Test
-    void enleverCreature() {
-    }
-
-    @Test
-    void contientCreature() {
-    }
-
-    @Test
-    void typeEnclos() {
-    }
-
-    @Test
-    void etatpropete() {
-    }
-
-    @Test
     void genererNouvelleEnclos() {
     }
 

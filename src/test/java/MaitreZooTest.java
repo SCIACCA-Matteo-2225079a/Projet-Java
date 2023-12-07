@@ -31,18 +31,6 @@ class MaitreZooTest {
     }
 
     @Test
-    void examinerEnclos() {
-    }
-
-    @Test
-    void nettoyage() {
-    }
-
-    @Test
-    void nourrir() {
-    }
-
-    @Test
     void ajouterCreatureDansEnclos() {
     }
 
