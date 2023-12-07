@@ -4,98 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CreatureTest {
 
     @Test
-    void getNom() {
-    }
-
-    @Test
-    void setNom() {
-    }
-
-    @Test
-    void getSexe() {
-    }
-
-    @Test
-    void setSexe() {
-    }
-
-    @Test
-    void getPoids() {
-    }
-
-    @Test
-    void setPoids() {
-    }
-
-    @Test
-    void getTaille() {
-    }
-
-    @Test
-    void setTaille() {
-    }
-
-    @Test
-    void getAge() {
-    }
-
-    @Test
-    void setAge() {
-    }
-
-    @Test
-    void isIndicateurDeFaim() {
-    }
-
-    @Test
-    void setIndicateurDeFaim() {
-    }
-
-    @Test
-    void isIndicateurDeSommeil() {
-    }
-
-    @Test
-    void setIndicateurDeSommeil() {
-    }
-
-    @Test
-    void isDormir() {
-    }
-
-    @Test
-    void setDormir() {
-    }
-
-    @Test
-    void getIndicateurDeSante() {
-    }
-
-    @Test
-    void setIndicateurDeSante() {
-    }
-
-    @Test
-    void isMalade() {
-    }
-
-    @Test
-    void setMalade() {
-    }
-
-    @Test
-    void manger() {
-    }
-
-    @Test
-    void emettreUnSon() {
-    }
-
-    @Test
-    void etreSoigne() {
-    }
-
-    @Test
     void sommeil() {
     }
 
@@ -105,11 +13,10 @@ class CreatureTest {
 
     @Test
     void maladie() {
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, false, 100, true);
+        assertEquals(true, creature.isMalade());
     }
 
-    @Test
-    void genererNouvelleCréature() {
-    }
 
     @Test
     void mourir() {
@@ -117,10 +24,6 @@ class CreatureTest {
 
     @Test
     void mettreABas() {
-    }
-
-    @Test
-    void testToString() {
     }
 
     @Test

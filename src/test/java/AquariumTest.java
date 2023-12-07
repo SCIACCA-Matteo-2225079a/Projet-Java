@@ -6,26 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AquariumTest {
 
-    @Test
-    void getProfondeurBassin() {
-    }
-
-    @Test
-    void setProfondeurBassin() {
-    }
-
-    @Test
-    void getSaliniteEau() {
-    }
-
-    @Test
-    void setSaliniteEau() {
-    }
-
-    @Test
-    void afficherCaracteristiques() {
-    }
-
 
     // Test de création d'un aquarium
     @Test

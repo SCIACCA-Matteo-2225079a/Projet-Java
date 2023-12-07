@@ -203,9 +203,10 @@ public class Creature {
 
 
     public int etreSoigne() {
-        if (this.indicateurDeSante != 100) {
+        if (this.indicateurDeSante != 100 || malade == true) {
             System.out.println(getNom()+" va être soigné. "+ getIndicateurDeSante());
             indicateurDeSante = 100;
+            malade = false;
             setIndicateurDeSante(indicateurDeSante);
             System.out.println(getNom()+" est soigné. "+ getIndicateurDeSante());
         }
@@ -236,12 +237,6 @@ public class Creature {
                     }
     }
 
-    public void maladie() {
-        if (this.malade == true) {
-            System.out.println("L'animal est malade");
-            indicateurDeSante = indicateurDeSante - 1;
-        }
-    }
 
     public  Creature genererNouvelleCréature()
     {

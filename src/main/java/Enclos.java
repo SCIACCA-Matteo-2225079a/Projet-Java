@@ -110,15 +110,17 @@ public class Enclos {
         }
     }
     public boolean contientCreature(Creature creatureTrue) {
-        // Supposons que creature est une propriété de votre Enclos
-        // Vérifiez si la créature donnée est présente dans l'enclos
         for (Creature c : creaturesPres) {
+            System.out.println("Comparing: " + c + " with " + creatureTrue);
             if (c.equals(creatureTrue)) {
+                System.out.println("Match found!");
                 return true;
             }
         }
+        System.out.println("No match found.");
         return false;
     }
+
 
     public void typeEnclos()
     {

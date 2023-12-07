@@ -155,6 +155,8 @@ class ZooTest {
     @Test
     void TestToString() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 1, new ArrayList<>(), new ArrayList<>(), 5);
+        Enclos enclos = new Enclos("EnclosTest", 100.0, 3, new ArrayList<>(), 8);
+        enclos.genererNouvelleEnclos();
         assertEquals("Bienvenue à Mon Zoo nombre d'enclos : 1", zoo.toString());
     }
 
