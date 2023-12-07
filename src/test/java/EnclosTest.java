@@ -1,6 +1,4 @@
 import org.junit.jupiter.api.Test;
-import src.main.java.Creature;
-import src.main.java.Enclos;
 
 import java.util.ArrayList;
 
@@ -88,10 +86,11 @@ class EnclosTest {
     void genererNouvelleEnclos() {
     }
 
+
     @Test
     void testAjouterCreature() {
-        Enclos enclos = new Enclos("Enclos Test", 100.0, 3, new ArrayList<>(), 8);
-        Creature creature = new Creature("TestCreature");
+        Enclos enclos = new Enclos("EnclosTest", 100.0, 3, new ArrayList<>(), 8);
+        Creature creature = new Creature("Phénix", "Male", 50, 150, 5, true, true, false, 100, false);
 
         enclos.ajouterCreature(creature);
 
@@ -102,7 +101,7 @@ class EnclosTest {
     @Test
     void testEnleverCreature() {
         Enclos enclos = new Enclos("Enclos Test", 100.0, 3, new ArrayList<>(), 8);
-        Creature creature = new Creature("TestCreature");
+        Creature creature = new Creature("Licornes", "Male", 50, 150, 5, true, true, false, 100, false);
 
         enclos.ajouterCreature(creature);
         enclos.enleverCreature(creature);
@@ -114,7 +113,7 @@ class EnclosTest {
     @Test
     void testContientCreature() {
         Enclos enclos = new Enclos("Enclos Test", 100.0, 3, new ArrayList<>(), 8);
-        Creature creature = new Creature("TestCreature");
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, false, 100, false);
 
         enclos.ajouterCreature(creature);
 
@@ -123,7 +122,7 @@ class EnclosTest {
 
     @Test
     void testTypeEnclos() {
-        Enclos enclos = new Enclos("Enclos Test", 100.0, 3, new ArrayList<>(), 8);
+        Enclos enclos = new Enclos("Cage", 100.0, 3, new ArrayList<>(), 8);
         assertEquals("Cage", enclos.getNom());
     }
 

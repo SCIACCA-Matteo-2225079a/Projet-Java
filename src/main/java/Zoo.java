@@ -1,5 +1,3 @@
-package src.main.java;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,6 +31,8 @@ public class Zoo  {
     public void setCreaturePres(ArrayList<Creature> creaturePres) {
         this.creaturePres = creaturePres;
     }
+
+
 
     public String getNom() {
         return nom;

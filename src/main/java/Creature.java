@@ -1,5 +1,3 @@
-package src.main.java;
-
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -33,6 +31,7 @@ public class Creature {
         this.indicateurDeSante = indicateurDeSante;
         this.malade = malade;
     }
+
 
     public String getNom() {
 
@@ -147,6 +146,27 @@ public class Creature {
             System.out.println(getNom()+" est en train de manger " +'\n'+indicateurDeFaim );
 
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Creature creature = (Creature) obj;
+        return nom.equals(creature.nom) &&
+                sexe.equals(creature.sexe) &&
+                poids == creature.poids &&
+                taille == creature.taille &&
+                age == creature.age &&
+                indicateurDeFaim == creature.indicateurDeFaim &&
+                indicateurDeSommeil == creature.indicateurDeSommeil &&
+                dormir == creature.dormir &&
+                indicateurDeSante == creature.indicateurDeSante &&
+                malade == creature.malade;
     }
 
     public String emettreUnSon(String son) {
