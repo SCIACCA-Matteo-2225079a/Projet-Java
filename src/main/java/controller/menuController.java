@@ -138,8 +138,7 @@ public class menuController {
                     }
                     else if (interragir == 'p') {
                         System.out.println("Il y a " + zoo.getNbCreaturesZoo() + " créatures dans le zoo");
-                        System.out.println("Toutes les créatures dans le zoo :");
-                        zoo.afficherCreaturesPres(ListeCrea);
+
                     }
                     else if (interragir == 'c') {
                         break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
