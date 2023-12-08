@@ -21,7 +21,7 @@ public class menuController {
         maitre = new MaitreZoo("Raoul", "Homme", 24);
         creature = new Creature("Lycanthropes", "femme", 32, 5, 19, false, false, false, 50, true, "OK");
         enclos = new Enclos("Cage", 32, 6, ListeCrea, 4);
-        zoo = new Zoo("Foires au monstres", maitre, 8, ListeCrea, enclosArrayList, 5);
+        zoo = new Zoo("La Foire au monstres", maitre, 8, ListeCrea, enclosArrayList, 5);
         zoo.lancerTimer();
         zoo.ajouterEnclos(enclos);
 
@@ -46,11 +46,12 @@ public class menuController {
         System.out.println("Choisis ton age");
         int age = sc.nextInt();
         maitre.setAge(age);
+        System.out.println("Bonjour, je suis " + maitre);
+        System.out.println(zoo.toString());
+
     }
 
     public void interaction() {
-        System.out.println("Bonjour, je suis " + maitre);
-
         while (true) {
             System.out.println("Quelle action voulez-vous faire ? (i pour faire une action, w pour se déplacer, x pour quitter)");
             String action = sc.next();
@@ -110,6 +111,12 @@ public class menuController {
 
                             while (true) {
                                 int choixEnclos = sc.nextInt();}
+                        }
+
+                    }
+                    else{
+                        if (interagir == 'c') {
+                            break;
                         }
                     }
                 }

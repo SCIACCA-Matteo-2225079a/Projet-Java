@@ -200,17 +200,44 @@ public class Enclos {
         }
     }
 
+    public void propreteEnclos(int proprete) {
+        Thread propreteThread;
+        this.proprete = proprete;
+
+        propreteThread = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(10000); // intervalle de 10 secondes
+                    decrementerProprete();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    // Gérer l'interruption du thread si nécessaire
+                    break;
+                }
+            }
+        });
+        propreteThread.start();
+    }
+
+    private synchronized void decrementerProprete() {
+        if (proprete > 0) {
+            proprete--;
+            setProprete(proprete);
+            System.out.println("La propreté de " + getNom() + " est maintenant à " + getProprete());
+            Etatpropete(); // Appeler la méthode Etatpropete après la modification
+        }
+    }
     public void Etatpropete()
     {
-        if (proprete>= 7)
+        if (proprete== 10)
         {
             System.out.println("bon");
         }
-        else if (proprete< 7 && proprete > 3)
+        else if (proprete == 7)
         {
             System.out.println("correct");
         }
-        else
+        else if (proprete == 3)
         {
             System.out.println("mauvais");
         }

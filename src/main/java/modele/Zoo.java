@@ -15,12 +15,12 @@ public class Zoo  {
     private int nbMaxEnclos;
     private int affichernbCreaturesZoo;
 
-    public Zoo(String nom, MaitreZoo maitre , int nbCrea, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
+    public Zoo(String nom, MaitreZoo maitre , int nbCreaturesZoo, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
 
         this.nom = nom;
         this.maitre= maitre;
-        this.nbCreaturesZoo=nbCrea;
+        this.nbCreaturesZoo=nbCreaturesZoo;
         this.creaturePres = new ArrayList<>();
         this.enclosExist=enclosExist;
         this.nbMaxEnclos = nbMaxEnclos;
