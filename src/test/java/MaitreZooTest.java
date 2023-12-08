@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MaitreZooTest {
-
+    /**
+     * test si la fonction ExaminerEnclos est correcte
+     */
     @Test
     void testExaminerEnclos() {
         // Création d'une instance d'enclos pour les tests
         Enclos enclosTest = new Enclos("Enclos de Test", 100.0, 10, new ArrayList<>(), 8);
-
-        // Création d'une instance de MaitreZoo pour les tests
         MaitreZoo maitreZoo = new MaitreZoo("John Doe", "Homme", 35);
 
         // Appel de la méthode d'examen d'enclos
@@ -29,6 +29,9 @@ class MaitreZooTest {
 
     }
 
+    /**
+     * test si la fonction nettoyage est correcte
+     */
     @Test
     public void testNettoyage() {
         // Création d'une instance d'enclos pour les tests
@@ -45,7 +48,9 @@ class MaitreZooTest {
         System.out.println("-------------------------------");
 
     }
-
+    /**
+     * test si la fonction nettoyage est correcte
+     */
     @Test
     public void testNourrir() {
         // Création d'une créature pour les tests

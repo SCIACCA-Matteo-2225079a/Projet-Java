@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VoliereTest {
 
-
+    /**
+     * test si la fonction AfficherCaracteristiques est correcte
+     */
     @Test
     void TestAfficherCaracteristiques() {
         // Création d'une créature pour les tests

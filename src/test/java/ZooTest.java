@@ -7,58 +7,76 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZooTest {
 
-
+    /**
+     * test si le GetNom est correcte
+     */
     @Test
     void TestGetNom() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals("Mon Zoo", zoo.getNom());
     }
-
+    /**
+     * test si le SetNom est correcte
+     */
     @Test
     void TestSetNom() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         zoo.setNom("Nouveau Zoo");
         assertEquals("Nouveau Zoo", zoo.getNom());
     }
-
+    /**
+     * test si le GetNbCreatures est correcte
+     */
     @Test
     void TestGetNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(0, zoo.getNbCreaturesZoo());
     }
-
+    /**
+     * test si le SetNbCreature est correcte
+     */
     @Test
     void TestSetNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         zoo.setNbCreaturesZoo(10);
         assertEquals(0, zoo.getNbCreaturesZoo());
     }
-
+    /**
+     * test si la fonction AfficherNbCreatures est correcte
+     */
     @Test
     void TestAfficherNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(0, zoo.afficherNbCreaturesZoo());
     }
-
+    /**
+     * test si la fonction IncrementerJour est correcte
+     */
     @Test
     void TestIncrementerJour() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(2, zoo.incrementerJour());
     }
-
+    /**
+     * test si le GetJour est correcte
+     */
 
     @Test
     void TestGetJour() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(1, zoo.getJour());
     }
-
+    /**
+     * test si la fonction NbMaxEnclo est correcte
+     */
     @Test
     void TestNbMaxEnclos() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(5, zoo.nbMaxEnclos());
     }
-
+    /**
+     * test si la fonction trierParOrdreAlphabetique est correcte
+     */
 
     @Test
     void TesttrierParOrdreAlphabetique () {
