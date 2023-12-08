@@ -7,20 +7,20 @@ public class Zoo  {
 
     private String nom;
     private MaitreZoo maitre;
-    private int nbCreatures;
+    private int nbCreaturesZoo;
     private ArrayList<Enclos> enclosExist;
 
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
     private int nbMaxEnclos;
-    private int afficherNbCreatures;
+    private int affichernbCreaturesZoo;
 
     public Zoo(String nom, MaitreZoo maitre , int nbCrea, ArrayList<Creature> creaturePres, ArrayList<Enclos> enclosExist, int nbMaxEnclos)
     {
 
         this.nom = nom;
         this.maitre= maitre;
-        this.nbCreatures=nbCrea;
+        this.nbCreaturesZoo=nbCrea;
         this.creaturePres = new ArrayList<>();
         this.enclosExist=enclosExist;
         this.nbMaxEnclos = nbMaxEnclos;
@@ -47,34 +47,40 @@ public class Zoo  {
        return maitre.getNom();
    }
 
-    public int getNbCreatures() {
-        int nbCreatures = 0;
+    public int getNbCreaturesZoo() {
+        int nbCreaturesZoo = 0;
 
         for (Enclos enclos : enclosExist) {
-            nbCreatures += enclos.getNbCreatures();
+            nbCreaturesZoo += enclos.getNbCreatures();
         }
 
-        return nbCreatures;
+        return nbCreaturesZoo;
     }
 
 
 
-    public void setNbCreatures(int nbCreatures) {
+    public void setNbCreaturesZoo(int nbCreaturesZoo) {
 
-        this.nbCreatures = nbCreatures;
+        this.nbCreaturesZoo = nbCreaturesZoo;
     }
 
 
 
-    public int afficherNbCreatures() {
+    public int afficherNbCreaturesZoo() {
 
-        return nbCreatures;
+        return nbCreaturesZoo;
 
     }
 
     public ArrayList<Creature>  afficherCreaturesPres() {
+        ArrayList<Creature> toutesLesCreatures = new ArrayList<>();
 
-        return creaturePres;
+        for (Enclos enclos : enclosExist) {
+            toutesLesCreatures.addAll(enclos.getCreaturesPres());
+        }
+
+        return toutesLesCreatures;
+
     }
 
     public static int incrementerJour() {
@@ -118,7 +124,7 @@ public class Zoo  {
     }
     @Override
     public String toString() {
-        return "Bienvenue à " + nom + "nombre d'enclos : "+ enclosExist.size();
+        return "Bienvenue à " + nom + ". Nombre d'enclos : "+ enclosExist.size();
     }
 }
 

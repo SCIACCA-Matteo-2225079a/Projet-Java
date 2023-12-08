@@ -67,7 +67,7 @@ class ZooTest {
     void TestSetCreaturePres() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false));
+        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false,"dsq"));
         zoo.setCreaturePres(creatures);
         assertEquals(creatures, zoo.afficherCreaturesPres());
     }
@@ -114,7 +114,7 @@ class ZooTest {
     void TestAfficherCreaturesPres() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false));
+        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false,"dsdq"));
         zoo.setCreaturePres(creatures);
         assertEquals(creatures, zoo.afficherCreaturesPres());
     }

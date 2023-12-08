@@ -15,18 +15,29 @@ public class Main {
         String genre;
 
         // TODO Auto-generated method stub
-        Creature creatureParDéfaut = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
-        Creature creature = creatureParDéfaut.genererNouvelleCréature();
-        ArrayList<Creature> ListeCrea = new ArrayList<>();
-        ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
+        Creature creature = new Creature("Lycanthropes","femme",32,5,19,false,false,false,50,true," OK");
+        ArrayList<Creature> ListeCrea = new ArrayList<>();
         Enclos enclosParDefaut = new Enclos("Tanière", 32,6,ListeCrea,4);
         Enclos enclos = enclosParDefaut.genererNouvelleEnclos();
+
+        ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,5);
+
+        ArrayList<Creature> toutesLesCreatures = zoo.afficherCreaturesPres();
+
         Zoo.lancerTimer();
         System.out.println(zoo );
+        creature.startVieillissement();  // Démarrer le thread de vieillissement
+        creature.emettreSon();
         enclosArrayList.add(enclos);
-        enclos.ajouterCreature(creature);
+        ListeCrea.add(creature);
+        enclos.setNbCreatures(1);
+        creature.sommeil();
+        System.out.println("Toutes les créatures dans le zoo :");
+        for (int i =0 ;i<toutesLesCreatures.size();i++) {
+            System.out.println(creature);
+        }
 
 
     /*
@@ -113,7 +124,8 @@ public class Main {
                         zoo.ajouterEnclos(enclos);
                     }
                     else if (interragir == 'p') {
-                        System.out.println("Il y a " + zoo.getNbCreatures() + " créatures dans le zoo");
+                        System.out.println("Il y a " + zoo.getNbCreaturesZoo() + " créatures dans le zoo");
+                        System.out.println(toutesLesCreatures);
                     }
 
 

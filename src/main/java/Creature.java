@@ -4,7 +4,7 @@ import java.util.Random;
  * Définition de toutes les statistiques nécéssaires pour chaque animal.
  */
 
-public class Creature {
+public class Creature implements Runnable{
 
     private String nom;
     private String sexe;
@@ -16,10 +16,16 @@ public class Creature {
     private boolean dormir;
     private int indicateurDeSante = 100;
     private boolean malade;
+    private Thread vieillissementThread;
+    private Thread maladieThread;
+    private String son;
+    Random random = new Random();
+
+
 
 
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
-                    boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante, boolean malade) {
+                    boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante, boolean malade,String son) {
         this.nom = nom;
         this.sexe = sexe;
         this.poids = poids;
@@ -30,6 +36,10 @@ public class Creature {
         this.dormir = dormir;
         this.indicateurDeSante = indicateurDeSante;
         this.malade = malade;
+        this.son = son;
+        // Création du thread de vieillissement
+        vieillissementThread = new Thread(this);
+        vieillissementThread.start();
     }
 
 
@@ -127,10 +137,7 @@ public class Creature {
         if(malade== true)
         {
             System.out.println(getNom()+" est malade.");
-            while (indicateurDeSante !=0 )
-            {
-                --indicateurDeSante;
-            }
+
         }
         return malade;
     }
@@ -139,10 +146,17 @@ public class Creature {
 
         this.malade = malade;
     }
+    public String getSon() {
+        return son;
+    }
+
+    public void setSon(String son) {
+        this.son = son;
+    }
 
     public void manger() {
-        if (this.indicateurDeSommeil == false) {
-            this.indicateurDeFaim = false;
+        if (dormir == false) {
+            indicateurDeFaim = false;
             System.out.println(getNom()+" est en train de manger " +'\n'+indicateurDeFaim );
 
         }
@@ -169,35 +183,7 @@ public class Creature {
                 malade == creature.malade;
     }
 
-    public String emettreUnSon(String son) {
-        if (getNom().equals("Lycanthropes")) {
-            System.out.println("Aouuuuh");
-            return "Aouuuuh";
-        } else if (getNom().equals("Licornes")) {
-            System.out.println("Hiiii");
-            return "Hiiii";
-        } else if (getNom().equals("Nymphes")) {
-            System.out.println("Ploc-ploc");
-            return "Ploc-ploc";
-        } else if (getNom().equals("Krakens")) {
-            System.out.println("Lap-lap");
-            return "Lap-lap";
-        } else if (getNom().equals("Sirènes")) {
-            System.out.println("Chant");
-            return "Chant";
-        } else if (getNom().equals("Mégalodons")) {
-            System.out.println("Aaaaaah");
-            return "Aaaaaah";
-        } else if (getNom().equals("Phénix")) {
-            System.out.println("Flap-flap-flap");
-            return "Flap-flap-flap";
-        } else if (getNom().equals("Dragons")) {
-            System.out.println("Grrrrr");
-            return "Grrrrr";
-        }
 
-        return son;
-    }
 
 
 
@@ -212,40 +198,73 @@ public class Creature {
         return indicateurDeSante;
     }
 
-    public void sommeil() {
-        if (this.indicateurDeSommeil == true) {
-            this.dormir = true;
-        }
-            else if (this.indicateurDeSommeil == false) {
-                this.dormir = false;
+            public void sommeil() {
+                Thread sommeilThread = new Thread(() -> {
+                    while (true) {
+                        try {
+                            // La créature dort pendant 5 secondes
+                            Thread.sleep(300000);
+
+                            synchronized (this) {
+                                dormir = true;
+                                System.out.println(getNom() + " dort.");
+                            }
+
+                            // La créature est réveillée pendant 5 secondes
+                            Thread.sleep(420000);
+
+                            synchronized (this) {
+                                dormir = false;
+                                System.out.println(getNom() + " est réveillé.");
+                            }
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            // Gérer l'interruption du thread si nécessaire
+                        }
+                    }
+                });
+
+                sommeilThread.start();
             }
-        }
 
     public void sante() {
         if (this.indicateurDeSante == 100) {
             System.out.println("L'animal est en parfaite santé");
         }
-            else if (this.indicateurDeSante >= 50 &&  this.indicateurDeSante <= 99) {
-                System.out.println("L'animal est en bonne santé");
-            }
-                else if (this.indicateurDeSante >= 1 &&  this.indicateurDeSante <= 49) {
+        else if (this.indicateurDeSante == 50 ) {
+            System.out.println("L'animal est en bonne santé");
+        }
+        else if (this.indicateurDeSante == 20) {
                     System.out.println("L'animal est en mauvaise santé");
-                }
-                    else if (this.indicateurDeSante == 0) {
-                        System.out.println("L'animal est mort");
-                    }
+        }
+        else if (this.indicateurDeSante == 0) {
+            mourir();
+        }
+
     }
 
     public void maladie() {
         if (this.malade == true) {
-            System.out.println("L'animal est malade");
-            indicateurDeSante = indicateurDeSante - 1;
+            maladieThread = new Thread(() -> {
+                while (true) {
+                    try {
+                        Thread.sleep(10000); // intervalle de 10 secondes (ajustez selon vos besoins)
+                        indicateurDeSante--;
+                        sante();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        // Gérer l'interruption du thread si nécessaire
+                        break; // Sortir de la boucle en cas d'interruption
+                    }
+                }
+            });
+            maladieThread.start();
         }
     }
 
     public  Creature genererNouvelleCréature()
     {
-        Random random = new Random();
 
         ArrayList<String> especes = new ArrayList<>();
         especes.add("Lycanthropes");
@@ -284,13 +303,12 @@ public class Creature {
         setMalade(maladeAl);
 
         Creature newCreature  = new Creature(getNom(), getSexe(), getPoids(), getTaille(), getAge(), isIndicateurDeFaim(),
-        isIndicateurDeSommeil(), isDormir(), getIndicateurDeSante(),isMalade());
+        isIndicateurDeSommeil(), isDormir(), getIndicateurDeSante(),isMalade(),getSon());
         return newCreature;
     }
 
     public void mourir()
     {
-        Random random= new Random();
         int mortViellesse = random.nextInt(130)+80;
         if (age == mortViellesse){
             System.out.println(getNom()+" est morte de vieillesse.");
@@ -298,11 +316,77 @@ public class Creature {
         else if (indicateurDeSante == 0)
         {
             System.out.println(getNom()+" est morte d'un maladie.");
-
         }
     }
 
     public void mettreABas(){}
+
+    public void emettreSon(){
+
+
+        // Démarrer le thread pour émettre le son de manière asynchrone
+        Thread sonThread = new Thread(() -> {
+            while (!Thread.interrupted()) {
+                if (getNom().equals("Lycanthropes")) {
+                    setSon("Aouuuuh");
+                } else if (getNom().equals("Licornes")) {
+                    setSon("Hiiii");
+                } else if (getNom().equals("Nymphes")) {
+                    setSon("Ploc-ploc");
+                } else if (getNom().equals("Krakens")) {
+                    setSon("Lap-lap");
+                } else if (getNom().equals("Sirènes")) {
+                    setSon("Chant");
+                } else if (getNom().equals("Mégalodons")) {
+                    setSon("Aaaaaah");
+                } else if (getNom().equals("Phénix")) {
+                    setSon("Flap-flap-flap");
+                } else if (getNom().equals("Dragons")) {
+                    setSon("Grrrrr");
+                }
+                int cri = random.nextInt(180000)+120000;
+                boolean maladieCreature = random.nextBoolean();
+                // Vérifiez si le son à émettre n'est pas null
+                if (getSon() != null && dormir ==false) {
+                    System.out.println(getSon());
+                    setSon("");
+                    if (maladieCreature == true)
+                    {
+                        maladie();
+                    }
+
+
+                }
+                try {
+                    Thread.sleep(6000);  // Émettre le son dans toutes le 2 à 3 minutes
+                } catch (InterruptedException e) {
+                    // Le thread a été interrompu, sortez de la boucle
+                    break;
+                }
+            }
+        });
+        sonThread.start();
+    }
+    public void startVieillissement() {
+        if (!vieillissementThread.isAlive()) {
+            vieillissementThread = new Thread(this);
+            vieillissementThread.start();
+        }
+    }
+    public void run() {
+        // Tâche exécutée par le thread de vieillissement
+        while (!Thread.interrupted()) {
+            // Logique de vieillissement
+            age++;
+            System.out.println(getNom() + " vieillit. Nouvel âge : " + age);
+            try {
+                Thread.sleep(600000);
+            } catch (InterruptedException e) {
+                // Le thread a été interrompu, sortez de la boucle
+                break;
+            }
+        }
+    }
 
     @Override
     public String toString() {
@@ -311,6 +395,7 @@ public class Creature {
                 "Indicateur de sommeil : " + indicateurDeSommeil + '\n'+ "Endormie : " + dormir +  '\n'+"Indicateur de sante :" + indicateurDeSante
                 + '\n'+ "Malade : " + malade+ '\n' ;
     }
+
 }
 
 
