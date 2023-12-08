@@ -1,4 +1,4 @@
-import modele.Creature;
+package modele;
 
 import java.util.ArrayList;
 
@@ -25,11 +25,11 @@ public class Voliere extends Enclos {
                 ", Superficie : " + getSuperficie() +
                 ", Nombre Maximum de Créatures : " + getNbMaxCreatures() +
                 ", Propreté : " + getProprete() +
-                ", Hauteur de la volière : " + hauteur;
+                ", Hauteur de la volière : " + getHauteur();
     }
 
     @Override
     public String toString() {
-        return super.toString() + " Hauteur de la volière : " + hauteur;
+        return super.toString() + " Hauteur de la volière : " + getHauteur();
     }
 }
