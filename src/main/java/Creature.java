@@ -20,8 +20,7 @@ public class Creature implements Runnable{
     private Thread maladieThread;
     private String son;
     Random random = new Random();
-
-
+    private Enclos enclos;
 
 
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
@@ -227,25 +226,22 @@ public class Creature implements Runnable{
     public void sante() {
         if (this.indicateurDeSante == 100) {
             System.out.println("L'animal est en parfaite santé");
-        }
-        else if (this.indicateurDeSante == 50 ) {
+        } else if (this.indicateurDeSante == 50) {
             System.out.println("L'animal est en bonne santé");
-        }
-        else if (this.indicateurDeSante == 20) {
-                    System.out.println("L'animal est en mauvaise santé");
-        }
-        else if (this.indicateurDeSante == 0) {
-            int mortViellesse = random.nextInt(130)+80;
-            if (age == mortViellesse){
-                System.out.println(getNom()+" est morte de vieillesse.");
-            }
-            else if (indicateurDeSante == 0)
-            {
-                System.out.println(getNom()+" est morte d'un maladie.");
+        } else if (this.indicateurDeSante == 20) {
+            System.out.println("L'animal est en mauvaise santé");
+        } else if (this.indicateurDeSante == 0) {
+            int mortVieillesse = random.nextInt(130) + 80;
+            if (age >= mortVieillesse) {
+                System.out.println(getNom() + " est morte de vieillesse.");
 
+            } else {
+                System.out.println(getNom() + " est morte d'une maladie.");
+                enclos.CreatureMorte(this); // Appel de la méthode CreatureMorte avec l'instance actuelle
             }
         }
     }
+
 
     public void maladie() {
         if (this.malade == true) {
@@ -308,6 +304,9 @@ public class Creature implements Runnable{
 
         Creature newCreature  = new Creature(getNom(), getSexe(), getPoids(), getTaille(), getAge(), isIndicateurDeFaim(),
         isIndicateurDeSommeil(), isDormir(), getIndicateurDeSante(),isMalade(),getSon());
+        startVieillissement();  // Démarrer le thread de vieillissement
+        emettreSon();
+        sommeil();
         return newCreature;
     }
 
