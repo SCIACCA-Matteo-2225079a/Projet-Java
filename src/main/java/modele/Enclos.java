@@ -185,6 +185,8 @@ public class Enclos {
                 for (int i = 2; i < 6; i++) {
                     System.out.println(especeEnclos.get(i) + ": " + i);
                 }
+            }else {
+                System.out.println("Erreur : Choisissez un nombre entre 0 et " + (typeEnclos.size() - 1) + " seulement");
             }
 
 
