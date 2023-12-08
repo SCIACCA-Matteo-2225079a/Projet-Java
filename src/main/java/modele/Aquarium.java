@@ -1,5 +1,4 @@
-
-import modele.Creature;
+package modele;
 
 import java.util.ArrayList;
 
