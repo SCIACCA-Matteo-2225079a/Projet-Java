@@ -5,33 +5,29 @@ class CreatureTest {
 
     @Test
     void sommeil() {
-        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, true, 100, false,"ahaha");
+        // Création d'une créature pour les tests
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, true, 100, false,"ok");
         assertEquals(true, creature.isDormir());
     }
 
     @Test
     void sante() {
-        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, false, false, 100, false);
+        // Création d'une créature pour les tests
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, false, false, 100, false, "ok");
         assertEquals(100, creature.getIndicateurDeSante());
     }
 
     @Test
     void maladie() {
-        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, false, false, 100, true);
+        // Création d'une créature pour les tests
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, false, false, 100, true, "ok");
         assertEquals(true, creature.isMalade());
     }
 
 
     @Test
-    void mourir() {
-    }
-
-    @Test
-    void mettreABas() {
-    }
-
-    @Test
     public void testCreatureConstructor() {
+        // Création d'une créature pour les tests
         Creature creature = new Creature("NomTest", "Male", 50, 150, 5, false, true, false, 100, false,"ok");
         assertNotNull(creature);
         assertEquals("NomTest", creature.getNom());
@@ -39,6 +35,7 @@ class CreatureTest {
 
     @Test
     public void testManger() {
+        // Création d'une créature pour les tests
         Creature creature = new Creature("Test", "Male", 50, 150, 5, false, true, false, 100, false,"ok");
         creature.manger();
         assertFalse(creature.isIndicateurDeFaim());
@@ -47,6 +44,7 @@ class CreatureTest {
 
     @Test
     public void testEtreSoigne() {
+        // Création d'une créature pour les tests
         Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false,"ok");
         creature.etreSoigne();
         assertEquals(100, creature.getIndicateurDeSante());
@@ -54,15 +52,12 @@ class CreatureTest {
 
     @Test
     public void testGenererNouvelleCreature() {
+        // Création d'une créature pour les tests
         Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false,"ok");
         Creature newCreature = creature.genererNouvelleCréature();
         assertNotNull(newCreature);
         System.out.println(newCreature);
 
     }
-
-
-
-
 
 }

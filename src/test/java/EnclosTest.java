@@ -6,66 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EnclosTest {
 
-    @Test
-    void getNom() {
-    }
-
-    @Test
-    void setNom() {
-    }
-
-    @Test
-    void getSuperficie() {
-    }
-
-    @Test
-    void setSuperficie() {
-    }
-
-    @Test
-    void getNbMaxCreatures() {
-    }
-
-    @Test
-    void setNbMaxCreatures() {
-    }
-
-    @Test
-    void getNbCreatures() {
-    }
-
-    @Test
-    void setNbCreatures() {
-    }
-
-    @Test
-    void getCreaturesPres() {
-    }
-
-    @Test
-    void setCreaturesPres() {
-    }
-
-    @Test
-    void getProprete() {
-    }
-
-    @Test
-    void setProprete() {
-    }
-
-    @Test
-    void testToString() {
-    }
-
-    @Test
-    void afficherCaracteristiques() {
-    }
-
-    @Test
-    void genererNouvelleEnclos() {
-    }
-
 
     @Test
     void testAjouterCreature() {
