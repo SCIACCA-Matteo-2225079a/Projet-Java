@@ -82,7 +82,7 @@ public class Zoo  {
         return creaturePresZoo;
     }
 
-    private void trierParOrdreAlphabetique(ArrayList<Creature> creatures) {
+    public void trierParOrdreAlphabetique(ArrayList<Creature> creatures) {
         Collections.sort(creatures, new Comparator<Creature>() {
             @Override
             public int compare(Creature creature1, Creature creature2) {
@@ -135,5 +135,9 @@ public class Zoo  {
     public String toString() {
         return "Bienvenue à " + nom + ". Nombre d'enclos : "+ enclosExist.size();
     }
+
+
+
+
 }
 

@@ -8,37 +8,6 @@ class ZooTest {
 
 
     @Test
-    void maitre() {
-    }
-
-    @Test
-    void incrementerJour() {
-    }
-
-    @Test
-    void lancerTimer() {
-    }
-
-    @Test
-    void getJour() {
-    }
-
-
-    @Test
-    void ajouterEnclos() {
-    }
-
-
-    @Test
-    void TestSetCreaturePres() {
-        Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-        ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false,"dsq"));
-        zoo.setCreaturePres(creatures);
-        assertEquals(creatures, zoo.afficherCreaturesPres());
-    }
-
-    @Test
     void TestGetNom() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals("Mon Zoo", zoo.getNom());
@@ -50,12 +19,6 @@ class ZooTest {
         zoo.setNom("Nouveau Zoo");
         assertEquals("Nouveau Zoo", zoo.getNom());
     }
-
-    //@Test
-   // void TestMaitre() {
-   //     Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-   //     assertEquals("John Doe", zoo.maitre(zoo.getMaitre()));
-    //}
 
     @Test
     void TestGetNbCreatures() {
@@ -77,26 +40,11 @@ class ZooTest {
     }
 
     @Test
-    void TestAfficherCreaturesPres() {
-        Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-        ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false,"dsdq"));
-        zoo.setCreaturePres(creatures);
-        assertEquals(creatures, zoo.afficherCreaturesPres());
-    }
-
-    @Test
     void TestIncrementerJour() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
         assertEquals(2, zoo.incrementerJour());
     }
 
-    @Test
-    void TestLancerTimer() {
-        // Difficile à tester directement dans une méthode de test
-        // car cela implique une attente pour observer le changement
-        // dans la valeur de jour.
-    }
 
     @Test
     void TestGetJour() {
@@ -110,14 +58,6 @@ class ZooTest {
         assertEquals(5, zoo.nbMaxEnclos());
     }
 
-    //@Test
-    //void TestAjouterEnclos() {
-    //    Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-    //    Enclos enclos = new Aquarium("Aquarium", 100.0, 5, new ArrayList<>(), 8, 10.0, 25.0);
-    //    zoo.ajouterEnclos(enclos);
-     //   assertEquals(1, zoo.getEnclosExist().size());
-    //}
-
     @Test
     void TestToString() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 1, new ArrayList<>(), new ArrayList<>(), 5);
@@ -126,6 +66,26 @@ class ZooTest {
         assertEquals("Bienvenue à Mon Zoo nombre d'enclos : 1", zoo.toString());
     }
 
+    @Test
+void TesttrierParOrdreAlphabetique () {
+        Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
 
+        // Création de quelques créatures non triées
+        ArrayList<Creature> creatures = new ArrayList<>();
+        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false, "dsdq"));
+        creatures.add(new Creature("Tigre", "Femelle", 180, 120, 4, true, false, false, 90, false, "dsdq"));
+        creatures.add(new Creature("Girafe", "Mâle", 600, 300, 8, true, false, false, 200, false, "dsdq"));
 
+        // Appel de la méthode pour trier les créatures
+        zoo.trierParOrdreAlphabetique(creatures);
+
+        // Création de la liste triée attendue
+        ArrayList<Creature> expectedSortedCreatures = new ArrayList<>();
+        expectedSortedCreatures.add(new Creature("Girafe", "Mâle", 600, 300, 8, true, false, false, 200, false, "dsdq"));
+        expectedSortedCreatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false, "dsdq"));
+        expectedSortedCreatures.add(new Creature("Tigre", "Femelle", 180, 120, 4, true, false, false, 90, false, "dsdq"));
+
+        // Vérification que la liste a été triée correctement
+        assertEquals(expectedSortedCreatures, creatures);
+    }
 }

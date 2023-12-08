@@ -222,5 +222,20 @@ public class Enclos {
         return newEnclos;
     }
 
+
+    private ArrayList<Creature> creatures;
+
+    public Enclos(String nom) {
+        // Initialisation de l'enclos
+        this.nom = nom;
+        this.creatures = new ArrayList<>();
+    }
+
+    // ... (autres méthodes de la classe)
+
+    public ArrayList<Creature> getCreatures() {
+        return creatures;
+    }
+
 }
 
