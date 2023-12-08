@@ -6,12 +6,21 @@ import java.util.ArrayList;
  * Définition des statistiques nécéssaires au maître du Zoo.
  */
 
+/**
+ * Caractéristiques du maître du zoo
+ */
 public class MaitreZoo {
     private String nom;
     private String sexe;
     private int age;
 
 
+    /**
+     * Récupérer les caractéristiques du maître du zoo
+     * @param nom
+     * @param sexe
+     * @param age
+     */
     public MaitreZoo(String nom, String sexe, int age )
     {
 
@@ -20,35 +29,63 @@ public class MaitreZoo {
         this.age = age;
     }
 
+    /**
+     * Récupérer le nom du maître du zoo
+     * @return nom
+     */
     public String getNom() {
 
         return nom;
     }
 
+    /**
+     * Modifier le nom du maître du zoo
+     * @param nom
+     */
     public void setNom(String nom) {
 
         this.nom = nom;
     }
 
+    /**
+     * Récupérer le sexe du maître du zoo
+     * @return sexe
+     */
     public String getSexe() {
         return sexe;
     }
 
+    /**
+     * Modifier le sexe du maître du zoo
+     * @param sexe
+     */
     public void setSexe(String sexe) {
 
         this.sexe = sexe;
     }
 
+    /**
+     * Récupérer l'age du maître du zoo
+     * @return age
+     */
     public int getAge() {
 
         return age;
     }
 
+    /**
+     * Modifier l'age du maître du zoo
+     * @param age
+     */
     public void setAge(int age) {
 
         this.age = age;
     }
 
+    /**
+     * Examination de l'enclos
+     * @param enclos
+     */
     public void examinerEnclos(Enclos enclos) {
         System.out.println("Le maître du Zoo examine l'enclos.");
 
@@ -60,6 +97,10 @@ public class MaitreZoo {
 
     }
 
+    /**
+     * Nettoyage de l'enclos
+     * @param enclos
+     */
         public void nettoyage(Enclos enclos)
     {
 
@@ -77,6 +118,11 @@ public class MaitreZoo {
         }
     }
 
+    /**
+     * Nourrir les créatures de l'enclos
+     * @param creature
+     * @return true or false
+     */
     public boolean nourrir(Creature creature) {
 
 
@@ -102,6 +148,12 @@ public class MaitreZoo {
         System.out.println(creature.getNom()+" a été nourris.");
         return false;
     }
+
+    /**
+     * Ajout de créatures dans l'enclos
+     * @param enclos
+     * @param creature
+     */
     public void ajouterCreatureDansEnclos(Enclos enclos, Creature creature) {
         // Vérifier si l'enclos a atteint sa capacité maximale
         if (enclos.getNbCreatures() < enclos.getNbCreatures()) {
@@ -117,6 +169,13 @@ public class MaitreZoo {
             System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
         }
     }
+
+    /**
+     * Transfer de créatures vers un autre enclos
+     * @param enclosActuel
+     * @param nouvelEnclos
+     * @param creature
+     */
     public void transfer(Enclos enclosActuel, Enclos nouvelEnclos, Creature creature) {
         // Vérifier si la créature est présente dans l'enclos actuel
         ArrayList<Creature> Transfere= new ArrayList<>();
@@ -133,6 +192,11 @@ public class MaitreZoo {
             System.out.println("La créature n'est pas présente dans l'enclos actuel. Aucun transfert nécessaire.");
         }
     }
+
+    /**
+     * Déplacement vers un autre enclos
+     * @param touche
+     */
     public void seDeplacer(char touche)
     {
          // Ajustez la valeur du déplacement selon vos besoins
@@ -153,6 +217,10 @@ public class MaitreZoo {
     }
 
 
+    /**
+     * Affichage caractéristiques maître du zoo
+     * @return toString
+     */
     @Override
     public String toString() {
         return
