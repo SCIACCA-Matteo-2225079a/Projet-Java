@@ -89,7 +89,7 @@ class MaitreZooTest {
     @Test
     public void testNourrir() {
         // Création d'une créature pour les tests
-        Creature creatureTest = new Creature("Lion", "Mâle", 150, 100, 5, true, false, false, 90, false);
+        Creature creatureTest = new Creature("Lion", "Mâle", 150, 100, 5, true, false, false, 90, false,"dqzd");
 
         // Création d'une instance de MaitreZoo pour les tests
         MaitreZoo maitreZoo = new MaitreZoo("John Doe", "Homme", 35);

@@ -13,20 +13,29 @@ public class Main {
         int age ;
         String nom;
         String genre;
+        String espece;
 
         // TODO Auto-generated method stub
-        Creature creatureParDéfaut = new Creature("Jean","femme",32,5,19,false,false,false,50,false);
-        Creature creature = creatureParDéfaut.genererNouvelleCréature();
+        MaitreZoo maitre;
+        maitre = new MaitreZoo("Raoul", "Homme",24);
+        Creature creature = new Creature("Lycanthropes","femme",32,5,19,false,false,false,50,false," OK");
         ArrayList<Creature> ListeCrea = new ArrayList<>();
+        Enclos enclos = new Enclos("Cage", 32,6,ListeCrea,4);
         ArrayList<Enclos> enclosArrayList = new ArrayList<>();
-        MaitreZoo maitre = new MaitreZoo("Raoul", "Homme",24);
-        Enclos enclosParDefaut = new Enclos("Tanière", 32,6,ListeCrea,4);
-        Enclos enclos = enclosParDefaut.genererNouvelleEnclos();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,5);
+        ArrayList<Creature> toutesLesCreatures = zoo.afficherCreaturesPres();
         Zoo.lancerTimer();
         System.out.println(zoo );
-        enclosArrayList.add(enclos);
-        enclos.ajouterCreature(creature);
+        creature.startVieillissement();  // Démarrer le thread de vieillissement
+        creature.emettreSon();
+        zoo.ajouterEnclos(enclos);
+        enclos.setNbCreatures(1);
+        creature.sommeil();
+        espece = creature.getNom();
+        System.out.println("Toutes les créatures dans le zoo :");
+        for (int i =0 ;i<toutesLesCreatures.size();i++) {
+            System.out.println(creature);
+        }
 
 
     /*
@@ -89,7 +98,7 @@ public class Main {
                         }
                     }
                     else if (interragir == 't') {
-                        maitre.transfer(enclos,enclosParDefaut,creature);
+                        //maitre.transfer(enclose,creature);
                     }
                     else if (interragir == 'e') {
 
@@ -107,13 +116,38 @@ public class Main {
                         }
                     }
                     else if (interragir == 'a') {
-                        enclos.ajouterCreature(creature);
+                        if (zoo.enclosExist.size() > 1) {
+                            System.out.println("Où voulez-vous ajouter la créature ?");
+
+                            for (int i = 0; i < zoo.enclosExist.size(); i++) {
+                                System.out.println(zoo.enclosExist.get(i).getNom() + " : " + i);
+                            }
+                            while (true) {
+                                int choixEnclos = sc.nextInt();
+                                if (choixEnclos <= zoo.enclosExist.size()) {
+                                    zoo.enclosExist.get(choixEnclos).ajouterCreature(creature.genererNouvelleCréature());
+
+                                    break;
+                                } else {
+                                    System.out.println("Erreur : Choisis un nombre entre 1 et " + (zoo.enclosExist.size() - 1) + " seulement");
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            zoo.enclosExist.get(0).ajouterCreature(creature);
+                        }
                     }
                     else if (interragir == 'o') {
                         zoo.ajouterEnclos(enclos);
                     }
                     else if (interragir == 'p') {
-                        System.out.println("Il y a " + zoo.getNbCreatures() + " créatures dans le zoo");
+                        System.out.println("Il y a " + zoo.getNbCreaturesZoo() + " créatures dans le zoo");
+                        System.out.println("Toutes les créatures dans le zoo :");
+                        for (Creature c : toutesLesCreatures) {
+                            System.out.println(c);
+                        }
                     }
 
 

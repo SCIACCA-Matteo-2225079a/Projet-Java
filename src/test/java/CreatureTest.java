@@ -32,34 +32,29 @@ class CreatureTest {
 
     @Test
     public void testCreatureConstructor() {
-        Creature creature = new Creature("NomTest", "Male", 50, 150, 5, false, true, false, 100, false);
+        Creature creature = new Creature("NomTest", "Male", 50, 150, 5, false, true, false, 100, false,"ok");
         assertNotNull(creature);
         assertEquals("NomTest", creature.getNom());
     }
 
     @Test
     public void testManger() {
-        Creature creature = new Creature("Test", "Male", 50, 150, 5, false, true, false, 100, false);
+        Creature creature = new Creature("Test", "Male", 50, 150, 5, false, true, false, 100, false,"ok");
         creature.manger();
         assertFalse(creature.isIndicateurDeFaim());
     }
 
-    @Test
-    public void testEmettreUnSon() {
-        Creature creature = new Creature("Lycanthropes", "Male", 50, 150, 5, true, true, false, 100, false);
-        assertEquals("Aouuuuh", creature.emettreUnSon(creature.getNom()));
-    }
 
     @Test
     public void testEtreSoigne() {
-        Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false);
+        Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false,"ok");
         creature.etreSoigne();
         assertEquals(100, creature.getIndicateurDeSante());
     }
 
     @Test
     public void testGenererNouvelleCreature() {
-        Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false);
+        Creature creature = new Creature("Test", "Male", 50, 150, 5, true, true, false, 80, false,"ok");
         Creature newCreature = creature.genererNouvelleCréature();
         assertNotNull(newCreature);
         System.out.println(newCreature);

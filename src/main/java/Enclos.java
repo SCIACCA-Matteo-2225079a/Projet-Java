@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Enclos {
@@ -8,7 +9,7 @@ public class Enclos {
     private int nbMaxCreatures;
     private int nbCreatures;
     private ArrayList<Creature> creaturesPres;
-
+    private Random random = new Random();
 
     public int proprete = 10;
 
@@ -70,6 +71,7 @@ public class Enclos {
 
     @Override
     public String toString() {
+
         return "Enclos{" +
                 "nom='" + nom + '\'' +
                 ", superficie=" + superficie +
@@ -78,6 +80,7 @@ public class Enclos {
                 ", creaturesPres=" + creaturesPres +
                 ", proprete='" + proprete + '\'' +
                 '}';
+
     }
 
     public String afficherCaracteristiques()
@@ -90,11 +93,12 @@ public class Enclos {
         if (nbCreatures < nbMaxCreatures) {
             // Créer une nouvelle créature en utilisant les paramètres de la méthode
             Creature newCreature = creature.genererNouvelleCréature();
+            System.out.println("La créature " + newCreature.getNom() + " a été ajoutée à l'enclos.");
             // Ajouter la créature à la liste des créatures présentes
             creaturesPres.add(newCreature);
             // Incrémenter le nombre total de créatures
             nbCreatures++;
-            System.out.println("La créature " + newCreature.getNom() + " a été ajoutée à l'enclos.");
+
         } else {
             System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
         }
@@ -103,7 +107,7 @@ public class Enclos {
     public void enleverCreature(Creature creature) {
         if (creaturesPres.contains(creature)) {
             creaturesPres.remove(creature);
-            nbCreatures--; // Décrémenter le nombre total de créatures
+
             System.out.println("La créature a été enlevée de l'enclos.");
         } else {
             System.out.println("La créature n'est pas présente dans l'enclos.");
@@ -121,36 +125,75 @@ public class Enclos {
         return false;
     }
 
+    public void CreatureMorte(Creature creature)
 
-    public void typeEnclos()
     {
+        Thread thread = new Thread(() -> {
+            if (creature.getIndicateurDeSante() == 0) {
+                creaturesPres.remove(creature);
+                System.out.println(creature.getNom() + " a été retirée de l'enclos car elle est morte.");
+            }
+        });
+
+        thread.start();
+    }
+
+    public void typeEnclos() {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> typeEnclos = new ArrayList<>();
         typeEnclos.add("Cage");
         typeEnclos.add("Volière");
         typeEnclos.add("Aquarium");
-        System.out.println("Quel type d'enclos voulez-vous ?" + '\n'+"-Cage : 1"+'\n'+"-Volière : 2"+'\n'+"-Aquarium : 3");
-        while (true)
-        {
-            int type = sc.nextInt();
-            if (type == 1)
-            {
-                setNom(typeEnclos.get(0));
+
+        ArrayList<String> especeEnclos = new ArrayList<>();
+        especeEnclos.add("Lycanthropes");
+        especeEnclos.add("Licornes");
+        especeEnclos.add("Nymphes");
+        especeEnclos.add("Krakens");
+        especeEnclos.add("Sirènes");
+        especeEnclos.add("Mégalodons");
+        especeEnclos.add("Phénix");
+        especeEnclos.add("Dragons");
+
+        int type;
+        System.out.println("Quel type d'enclos voulez-vous ?" + '\n' + "-Cage : 0" + '\n' + "-Volière : 1" + '\n' + "-Aquarium : 2");
+
+        while (true) {
+            type = sc.nextInt();
+            if (type >= 0 && type < typeEnclos.size()) {
+                setNom(typeEnclos.get(type));
                 break;
+            } else {
+                System.out.println("Erreur : Choisissez un nombre entre 0 et " + (typeEnclos.size() - 1) + " seulement");
             }
-            else if (type == 2)
-            {
-                setNom(typeEnclos.get(1));
+        }
+
+        System.out.println("Pour quelles espèces ?");
+        while (true) {
+            if (type == 0) {
+                for (int i = 0; i < 2; i++) {
+                    System.out.println(especeEnclos.get(i) + ": " + i);
+                }
+                System.out.println(especeEnclos.get(7) + ": " + 7);
+            } else if (type == 1) {
+                for (int i = 6; i <= 7; i++) {
+                    System.out.println(especeEnclos.get(i) + ": " + i);
+                }
+            } else if (type == 2) {
+                for (int i = 2; i < 6; i++) {
+                    System.out.println(especeEnclos.get(i) + ": " + i);
+                }
+            }
+
+
+            int especeChoix = sc.nextInt();
+            if (especeChoix >= 0 && especeChoix < especeEnclos.size()) {
+                setNom(typeEnclos.get(type) + " de " + especeEnclos.get(especeChoix));
+                int superficieAl = random.nextInt(120) + 60;
+                setSuperficie(superficieAl);
                 break;
-            }
-            else if (type == 3)
-            {
-                setNom(typeEnclos.get(2));
-                break;
-            }
-            else
-            {
-                System.out.println("Erreur : Choisis un nombre entre 1 et 3 seulement");
+            } else {
+                System.out.println("Erreur : Choisissez un nombre entre 0 et " + (especeEnclos.size() - 1) + " seulement");
             }
         }
     }
@@ -175,7 +218,7 @@ public class Enclos {
     {
 
         typeEnclos();
-        Enclos newEnclos  = new Enclos(getNom(),getSuperficie(),getNbMaxCreatures(),getCreaturesPres(),getProprete());
+        Enclos newEnclos  = new Enclos(nom,superficie,nbMaxCreatures,new ArrayList<>(),proprete);
         return newEnclos;
     }
 
