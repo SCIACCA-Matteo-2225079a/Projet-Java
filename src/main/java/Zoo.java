@@ -8,7 +8,7 @@ public class Zoo  {
     private String nom;
     private MaitreZoo maitre;
     private int nbCreaturesZoo;
-    private ArrayList<Enclos> enclosExist;
+    public ArrayList<Enclos> enclosExist;
 
     private ArrayList<Creature> creaturePres;
     private static int jour = 1;
@@ -76,7 +76,7 @@ public class Zoo  {
         ArrayList<Creature> toutesLesCreatures = new ArrayList<>();
 
         for (Enclos enclos : enclosExist) {
-            toutesLesCreatures.addAll(enclos.getCreaturesPres());
+            toutesLesCreatures.add(creaturePres.get(enclosExist.size()));
         }
 
         return toutesLesCreatures;
@@ -114,7 +114,7 @@ public class Zoo  {
             // Créer une nouvelle créature en utilisant les paramètres de la méthode
             Enclos newEnclos = enclos.genererNouvelleEnclos();
 
-            // Ajouter la créature à la liste des créatures présentes
+            // Ajouter l'enclos à la liste d'enclos présentes
             enclosExist.add(newEnclos);
 
             System.out.println("L'Enclos " + newEnclos.getNom() + " a été ajoutée à Zoo.");

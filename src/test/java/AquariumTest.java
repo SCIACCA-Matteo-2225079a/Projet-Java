@@ -32,8 +32,8 @@ class AquariumTest {
 
     void testCreationAquarium() {
         ArrayList<Creature> creatures = new ArrayList<>();
-        Creature creature = new Creature("Lycanthropes", "Male", 50, 150, 5, true, true, false, 100, false);
-        Creature CReature = new Creature("Lycanthropes", "Male", 50, 150, 5, true, true, false, 100, false);
+        Creature creature = new Creature("Lycanthropes", "Male", 50, 150, 5, true, true, false, 100, false,"qdsdq");
+        Creature CReature = new Creature("Lycanthropes", "Male", 50, 150, 5, true, true, false, 100, false,"dqsd");
 
         Aquarium monAquarium = new Aquarium("Aquarium 1", 50.0, 10, creatures, 5, 10.0, 20.0);
 
@@ -48,7 +48,7 @@ class AquariumTest {
 
     void testModificationProfondeurBassin() {
         ArrayList<Creature> creatures = new ArrayList<>();
-        Creature creature = new Creature("Krakens", "Male", 50, 150, 5, true, true, false, 100, false);
+        Creature creature = new Creature("Krakens", "Male", 50, 150, 5, true, true, false, 100, false,"qsdsd");
         Aquarium monAquarium = new Aquarium("Aquarium 1", 50.0, 10, creatures, 5, 10.0, 20.0);
 
         // Modification de la profondeur du bassin
@@ -65,7 +65,7 @@ class AquariumTest {
 
     void testModificationSaliniteEau() {
         ArrayList<Creature> creatures = new ArrayList<>();
-        Creature creature = new Creature("Mégalodons", "Male", 200, 300, 40, true, true, false, 100, false);
+        Creature creature = new Creature("Mégalodons", "Male", 200, 300, 40, true, true, false, 100, false,"dsqd");
         Aquarium monAquarium = new Aquarium("Aquarium 1", 50.0, 10, creatures, 5, 10.0, 20.0);
 
         // Modification de la salinité de l'eau

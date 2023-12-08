@@ -183,14 +183,10 @@ public class Creature implements Runnable{
                 malade == creature.malade;
     }
 
-
-
-
-
-
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
             System.out.println(getNom()+" va être soigné. "+ getIndicateurDeSante());
+            malade =  false;
             indicateurDeSante = 100;
             setIndicateurDeSante(indicateurDeSante);
             System.out.println(getNom()+" est soigné. "+ getIndicateurDeSante());
@@ -239,7 +235,15 @@ public class Creature implements Runnable{
                     System.out.println("L'animal est en mauvaise santé");
         }
         else if (this.indicateurDeSante == 0) {
-            mourir();
+            int mortViellesse = random.nextInt(130)+80;
+            if (age == mortViellesse){
+                System.out.println(getNom()+" est morte de vieillesse.");
+            }
+            else if (indicateurDeSante == 0)
+            {
+                System.out.println(getNom()+" est morte d'un maladie.");
+
+            }
         }
 
     }
@@ -292,7 +296,7 @@ public class Creature implements Runnable{
         setAge(ageAl);
         int poidsAl = random.nextInt(100)+20;
         setPoids(poidsAl);
-        int tailleAl = random.nextInt(10) + 1;
+        int tailleAl = random.nextInt(50) + 1;
         setTaille(tailleAl);
         boolean faim = random.nextBoolean();
         setIndicateurDeFaim(faim);
@@ -307,17 +311,6 @@ public class Creature implements Runnable{
         return newCreature;
     }
 
-    public void mourir()
-    {
-        int mortViellesse = random.nextInt(130)+80;
-        if (age == mortViellesse){
-            System.out.println(getNom()+" est morte de vieillesse.");
-        }
-        else if (indicateurDeSante == 0)
-        {
-            System.out.println(getNom()+" est morte d'un maladie.");
-        }
-    }
 
     public void mettreABas(){}
 
@@ -355,10 +348,9 @@ public class Creature implements Runnable{
                         maladie();
                     }
 
-
                 }
                 try {
-                    Thread.sleep(6000);  // Émettre le son dans toutes le 2 à 3 minutes
+                    Thread.sleep(cri);  // Émettre le son dans toutes le 2 à 3 minutes
                 } catch (InterruptedException e) {
                     // Le thread a été interrompu, sortez de la boucle
                     break;
@@ -391,7 +383,7 @@ public class Creature implements Runnable{
     @Override
     public String toString() {
         return  "Espèce : " + nom + '\n' + "Sexe : " + sexe + '\n' + "Poids : " + poids + '\n'
-                + "Taille : " + taille + "cm"+ '\n'+"Age : " + age + '\n'+ "Indicateur de faim : " + indicateurDeFaim + '\n'+
+                + "Taille : " + taille + "m"+ '\n'+"Age : " + age + '\n'+ "Indicateur de faim : " + indicateurDeFaim + '\n'+
                 "Indicateur de sommeil : " + indicateurDeSommeil + '\n'+ "Endormie : " + dormir +  '\n'+"Indicateur de sante :" + indicateurDeSante
                 + '\n'+ "Malade : " + malade+ '\n' ;
     }

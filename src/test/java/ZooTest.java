@@ -94,20 +94,20 @@ class ZooTest {
     @Test
     void TestGetNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-        assertEquals(0, zoo.getNbCreatures());
+        assertEquals(0, zoo.getNbCreaturesZoo());
     }
 
     @Test
     void TestSetNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-        zoo.setNbCreatures(10);
-        assertEquals(0, zoo.getNbCreatures());
+        zoo.setNbCreaturesZoo(10);
+        assertEquals(0, zoo.getNbCreaturesZoo());
     }
 
     @Test
     void TestAfficherNbCreatures() {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
-        assertEquals(0, zoo.afficherNbCreatures());
+        assertEquals(0, zoo.afficherNbCreaturesZoo());
     }
 
     @Test
