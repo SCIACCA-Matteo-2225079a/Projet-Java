@@ -1,4 +1,5 @@
 import modele.Creature;
+import modele.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
