@@ -7,7 +7,7 @@
 Dans le cadre de ce projet, nous avons réalisé un jeu centré sur un zoo fantastique.
 A travers ce jeu, l'utilisateur peut intéragir avec des créatures fantastiques et des enclos, qu'il ajoute lui même au zoo.
 
----
+
 
 ### Configurations compatibles
 
