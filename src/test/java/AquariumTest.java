@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 class AquariumTest {
 
-
-    // Test de création d'un aquarium
+    /**
+     * test si la fonction CreationAquarium est correcte
+     */
     @Test
 
     void testCreationAquarium() {
@@ -22,8 +23,9 @@ class AquariumTest {
         System.out.println(monAquarium.afficherCaracteristiques());
         System.out.println("-------------------------------");
     }
-
-    // Test de modification de la profondeur du bassin
+    /**
+     * test si la fonction ModificationProfondeurBassin est correcte
+     */
     @Test
 
     void testModificationProfondeurBassin() {
@@ -40,7 +42,9 @@ class AquariumTest {
         System.out.println("-------------------------------");
     }
 
-    // Test de modification de la salinité de l'eau
+    /**
+     * test si la fonction ModificationSaliniteEau est correcte
+     */
     @Test
 
     void testModificationSaliniteEau() {
