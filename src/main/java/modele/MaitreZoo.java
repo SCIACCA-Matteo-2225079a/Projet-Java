@@ -124,30 +124,22 @@ public class MaitreZoo {
      * @return true or false
      */
     public boolean nourrir(Creature creature) {
-
-
         // Vérifier si la créature est null avant d'appeler ses méthodes
-        if (creature != null) {
+
             // Exemple : Vérifier si la créature a besoin de nourriture
-                if (creature.isIndicateurDeFaim()==true) {
-                    System.out.println("Le maître du Zoo nourrit les animaux.");
-                    creature.manger();
-                    System.out.println(creature.getNom()+" a faim. Nourrissage nécessaire.");
+            if (creature.isIndicateurDeFaim()) {
+                System.out.println("Le maître du Zoo nourrit les animaux.");
+                creature.manger();
+                System.out.println(creature.getNom() + " a faim. Nourrissage nécessaire.");
+            } else {
+                System.out.println(creature.getNom() + " n'a pas faim.");
+                // Ajoutez d'autres opérations liées à la non-faim de la créature si nécessaire...
+            }
 
-                }
-                else {
-                    System.out.println(creature.getNom()+" n'a pas faim.");
-                }
-            // Ajoutez d'autres opérations liées à l'alimentation en fonction de vos besoins...
-        } else {
-            System.out.println("Erreur : La créature est null. Impossible de nourrir.");
-            return true;
+            // Exemple : Afficher un message après l'alimentation
+            System.out.println(creature.getNom() + " a été nourri.");
+            return true;  // Retournez true si la créature a été nourrie
         }
-
-        // Exemple : Afficher un message après l'alimentation
-        System.out.println(creature.getNom()+" a été nourris.");
-        return false;
-    }
 
     /**
      * Ajout de créatures dans l'enclos
@@ -169,24 +161,26 @@ public class MaitreZoo {
             System.out.println("L'enclos est plein, impossible d'ajouter une nouvelle créature.");
         }
     }
-
     /**
      * Transfer de créatures vers un autre enclos
      * @param enclosActuel
      * @param nouvelEnclos
      * @param creature
      */
-    public void transfer(Enclos enclosActuel, Enclos nouvelEnclos, Creature creature) {
+    public void transfer(ArrayList<Creature> enclosActuel, Enclos nouvelEnclos, Creature creature) {
         // Vérifier si la créature est présente dans l'enclos actuel
-        ArrayList<Creature> Transfere= new ArrayList<>();
-        if (enclosActuel.contientCreature(creature)) {
+        ArrayList<Creature> transfere = new ArrayList<>();
+        transfere.add(creature);
+
+        if (enclosActuel.contains(creature)) {
             System.out.println("La créature va être transférée dans un autre enclos.");
-            Transfere.add(creature);
+
             // Enlever la créature de l'enclos actuel
-            enclosActuel.enleverCreature(creature);
+            enclosActuel.remove(creature);
+
             // Ajouter la créature au nouvel enclos
-            ajouterCreatureDansEnclos(nouvelEnclos,Transfere.get(0));
-            Transfere.remove(0);
+            nouvelEnclos.ajouterCreature(creature);
+
             System.out.println("La créature a été transférée avec succès dans le nouvel enclos.");
         } else {
             System.out.println("La créature n'est pas présente dans l'enclos actuel. Aucun transfert nécessaire.");

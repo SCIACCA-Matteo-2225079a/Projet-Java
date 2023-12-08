@@ -15,14 +15,6 @@ public class Enclos {
 
     public int proprete = 10;
 
-    /**
-     * Paramètres de l'enclos
-     * @param nom
-     * @param superficie
-     * @param nbMaxCreatures
-     * @param creaturesPres
-     * @param proprete
-     */
     public Enclos(String nom, double superficie, int nbMaxCreatures, ArrayList<Creature>creaturesPres, int proprete) {
         this.nom = nom;
         this.superficie = superficie;
@@ -31,106 +23,54 @@ public class Enclos {
         this.proprete= getProprete();
     }
 
-    /**
-     * Récupérer le nom de l'enclos
-     * @return nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Modifier le nom de l'enclos
-     * @param nom
-     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    /**
-     * Récupérer la superficie de l'enclos
-     * @return superficie
-     */
     public double getSuperficie() {
         return superficie;
     }
 
-    /**
-     * Modifier la superficie de l'enclos
-     * @param superficie
-     */
     public void setSuperficie(double superficie) {
         this.superficie = superficie;
     }
 
-    /**
-     * Récupérer le numéro maximal de créatures dans l'enclos
-     * @return nbMaxCreatures
-     */
     public int getNbMaxCreatures() {
         return nbMaxCreatures;
     }
 
-    /**
-     * Modifier le numéro maximal de créatures dans l'enclos
-     * @param nbMaxCreatures
-     */
     public void setNbMaxCreatures(int nbMaxCreatures) {
         this.nbMaxCreatures = nbMaxCreatures;
     }
 
-    /**
-     * Récupérer le numéro de créatures dans l'enclos
-     * @return nbCreatures
-     */
     public int getNbCreatures() {
         return nbCreatures;
     }
 
-    /**
-     * Modifier le numéro de créatures dans l'enclos
-     * @param nbCreatures
-     */
     public void setNbCreatures(int nbCreatures) {
         this.nbCreatures = nbCreatures;
     }
 
-    /**
-     * Récupérer les créatures présentes
-     * @return creaturesPres
-     */
     public ArrayList<Creature> getCreaturesPres() {
         return creaturesPres;
     }
 
-    /**
-     * Modifier les créatures présentes
-     * @param creaturesPres
-     */
     public void setCreaturesPres(ArrayList<Creature> creaturesPres) {
         this.creaturesPres = creaturesPres;
     }
 
-    /**
-     * Récupérer la propreté de l'enclos
-     * @return proprete
-     */
     public int getProprete() {
         return proprete;
     }
 
-    /**
-     * Modifier la propreté de l'enclos
-     * @param proprete
-     */
     public void setProprete(int proprete) {
         this.proprete = proprete;
     }
 
-    /**
-     * Affichage de toutes les statistiques de l'enclos
-     * @return Statistiques de l'enclos
-     */
     @Override
     public String toString() {
 
@@ -140,24 +80,16 @@ public class Enclos {
                 ", nbMaxCreatures=" + nbMaxCreatures +
                 ", nbCreatures=" + nbCreatures +
                 ", creaturesPres=" + creaturesPres +
-                ", proprete='" + proprete + '\'' +
+                ", proprete='" + getProprete() + '\'' +
                 '}';
 
     }
 
-    /**
-     * Affiche les caractéristiques de l'enclos
-     * @return toString
-     */
     public String afficherCaracteristiques()
     {
         return toString();
     }
 
-    /**
-     * Ajouter une nouvelle créature dans l'enclos
-     * @param creature
-     */
     public void ajouterCreature(Creature creature) {
         // Vérifier si l'enclos a atteint sa capacité maximale
         if (nbCreatures < nbMaxCreatures) {
@@ -174,10 +106,6 @@ public class Enclos {
         }
     }
 
-    /**
-     * Enlever une créature de l'enclos
-     * @param creature
-     */
     public void enleverCreature(Creature creature) {
         if (creaturesPres.contains(creature)) {
             creaturesPres.remove(creature);
@@ -187,12 +115,6 @@ public class Enclos {
             System.out.println("La créature n'est pas présente dans l'enclos.");
         }
     }
-
-    /**
-     * Vérifier si l'enclos contient une créature
-     * @param creatureTrue
-     * @return true or false
-     */
     public boolean contientCreature(Creature creatureTrue) {
         for (Creature c : creaturesPres) {
             System.out.println("Comparing: " + c + " with " + creatureTrue);
@@ -205,10 +127,6 @@ public class Enclos {
         return false;
     }
 
-    /**
-     * Vérifier si la créature est morte
-     * @param creature
-     */
     public void CreatureMorte(Creature creature)
 
     {
@@ -222,9 +140,6 @@ public class Enclos {
         thread.start();
     }
 
-    /**
-     * Choisir le type d'enclos
-     */
     public void typeEnclos() {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> typeEnclos = new ArrayList<>();
@@ -287,10 +202,6 @@ public class Enclos {
         }
     }
 
-    /**
-     * Vérifier la propreté de l'enclos
-     * @param proprete
-     */
     public void propreteEnclos(int proprete) {
         Thread propreteThread;
         this.proprete = proprete;
@@ -310,9 +221,6 @@ public class Enclos {
         propreteThread.start();
     }
 
-    /**
-     * Affichage de l'état de propreté de l'enclos
-     */
     private synchronized void decrementerProprete() {
         if (proprete > 0) {
             proprete--;
@@ -321,10 +229,6 @@ public class Enclos {
             Etatpropete(); // Appeler la méthode Etatpropete après la modification
         }
     }
-
-    /**
-     * Différents états de propreté de l'enclos
-     */
     public void Etatpropete()
     {
         if (proprete== 10)
@@ -341,41 +245,14 @@ public class Enclos {
         }
 
     }
-
-    /**
-     * Génération d'un nouvel enclos
-     * @return newEnclos
-     */
     public  Enclos genererNouvelleEnclos()
     {
 
         typeEnclos();
-        Enclos newEnclos  = new Enclos(nom,superficie,nbMaxCreatures,creaturesPres,proprete);
+        Enclos newEnclos  = new Enclos(nom,superficie,nbMaxCreatures,new ArrayList<>(),proprete);
         return newEnclos;
     }
 
-
-    private ArrayList<Creature> creatures;
-
-    /**
-     * Initialisation de l'enclos
-     * @param nom
-     */
-    public Enclos(String nom) {
-        // Initialisation de l'enclos
-        this.nom = nom;
-        this.creatures = new ArrayList<>();
-    }
-
-    // ... (autres méthodes de la classe)
-
-    /**
-     * Listes des créatures dans l'enclos
-     * @return creatures
-     */
-    public ArrayList<Creature> getCreatures() {
-        return creatures;
-    }
 
 }
 
