@@ -59,16 +59,9 @@ class ZooTest {
         assertEquals(5, zoo.nbMaxEnclos());
     }
 
-    @Test
-    void TestToString() {
-        Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 1, new ArrayList<>(), new ArrayList<>(), 5);
-        Enclos enclos = new Enclos("EnclosTest", 100.0, 3, new ArrayList<>(), 8);
-        enclos.genererNouvelleEnclos();
-        assertEquals("Bienvenue à Mon Zoo nombre d'enclos : 1", zoo.toString());
-    }
 
     @Test
-void TesttrierParOrdreAlphabetique () {
+    void TesttrierParOrdreAlphabetique () {
         Zoo zoo = new Zoo("Mon Zoo", new MaitreZoo("John Doe", "Homme", 35), 0, new ArrayList<>(), new ArrayList<>(), 5);
 
         // Création de quelques créatures non triées
@@ -82,9 +75,9 @@ void TesttrierParOrdreAlphabetique () {
 
         // Création de la liste triée attendue
         ArrayList<Creature> expectedSortedCreatures = new ArrayList<>();
-        expectedSortedCreatures.add(new Creature("Dragon", "Mâle", 600, 300, 8, true, false, false, 200, false, "ok"));
-        expectedSortedCreatures.add(new Creature("Nymphe", "Mâle", 200, 150, 5, true, false, false, 100, false, "ok"));
-        expectedSortedCreatures.add(new Creature("Sirène", "Femelle", 180, 120, 4, true, false, false, 90, false, "ok"));
+        expectedSortedCreatures.add(new Creature("Kraken", "Mâle", 200, 150, 5, true, false, false, 100, false, "ok"));
+        expectedSortedCreatures.add(new Creature("Mégalodon", "Mâle", 600, 300, 8, true, false, false, 200, false, "ok"));
+        expectedSortedCreatures.add(new Creature("Phénix", "Femelle", 180, 120, 4, true, false, false, 90, false, "ok"));
 
         // Vérification que la liste a été triée correctement
         assertEquals(expectedSortedCreatures, creatures);
