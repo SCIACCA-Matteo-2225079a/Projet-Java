@@ -23,18 +23,18 @@ public class Main {
         Enclos enclos = new Enclos("Cage", 32,6,ListeCrea,4);
         ArrayList<Enclos> enclosArrayList = new ArrayList<>();
         Zoo zoo = new Zoo("Foires au monstres",maitre,8,ListeCrea,enclosArrayList,5);
-        ArrayList<Creature> toutesLesCreatures = zoo.afficherCreaturesPres();
         Zoo.lancerTimer();
-        System.out.println(zoo );
+        zoo.ajouterEnclos(enclos);
+        System.out.println(zoo);
         creature.startVieillissement();  // Démarrer le thread de vieillissement
         creature.emettreSon();
-        zoo.ajouterEnclos(enclos);
+
         enclos.setNbCreatures(1);
         creature.sommeil();
         espece = creature.getNom();
         System.out.println("Toutes les créatures dans le zoo :");
-        for (int i =0 ;i<toutesLesCreatures.size();i++) {
-            System.out.println(creature);
+        for (int i = 0; i < ListeCrea.size(); i++) {
+            maitre.nourrir(ListeCrea.get(i));
         }
 
 
@@ -93,8 +93,9 @@ public class Main {
                     char interragir = sc.next().charAt(0);
 
                     if (interragir == 'n') {
+                        System.out.println(enclos.getCreaturesPres());
                         for (int i = 0; i < ListeCrea.size(); i++) {
-                            maitre.nourrir(ListeCrea.get(i),enclos);
+                            maitre.nourrir(ListeCrea.get(i));
                         }
                     }
                     else if (interragir == 't') {
@@ -127,6 +128,7 @@ public class Main {
                                 if (choixEnclos <= zoo.enclosExist.size()) {
                                     zoo.enclosExist.get(choixEnclos).ajouterCreature(creature.genererNouvelleCréature());
 
+
                                     break;
                                 } else {
                                     System.out.println("Erreur : Choisis un nombre entre 1 et " + (zoo.enclosExist.size() - 1) + " seulement");
@@ -145,13 +147,8 @@ public class Main {
                     else if (interragir == 'p') {
                         System.out.println("Il y a " + zoo.getNbCreaturesZoo() + " créatures dans le zoo");
                         System.out.println("Toutes les créatures dans le zoo :");
-                        for (Creature c : toutesLesCreatures) {
-                            System.out.println(c);
-                        }
+                        zoo.afficherCreaturesPres(ListeCrea);
                     }
-
-
-
                     else if (interragir == 'c') {
                         break; // Quitte la boucle interne si l'utilisateur choisit de quitter le déplacement
                     }

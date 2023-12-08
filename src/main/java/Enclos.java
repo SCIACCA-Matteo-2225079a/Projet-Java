@@ -218,7 +218,7 @@ public class Enclos {
     {
 
         typeEnclos();
-        Enclos newEnclos  = new Enclos(nom,superficie,nbMaxCreatures,new ArrayList<>(),proprete);
+        Enclos newEnclos  = new Enclos(nom,superficie,nbMaxCreatures,creaturesPres,proprete);
         return newEnclos;
     }
 

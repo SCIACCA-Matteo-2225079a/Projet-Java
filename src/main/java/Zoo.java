@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class Zoo  {
 
@@ -72,15 +70,26 @@ public class Zoo  {
 
     }
 
-    public ArrayList<Creature>  afficherCreaturesPres() {
-        ArrayList<Creature> toutesLesCreatures = new ArrayList<>();
+    public ArrayList<Creature> afficherCreaturesPres(ArrayList<Creature> creaturePresZoo) {
+        // Tri par sélection
+        trierParOrdreAlphabetique(creaturePresZoo);
 
-        for (Enclos enclos : enclosExist) {
-            toutesLesCreatures.add(creaturePres.get(enclosExist.size()));
+        // Affichage après le tri
+        for (Creature creature : creaturePresZoo) {
+            System.out.println(creature);
         }
 
-        return toutesLesCreatures;
+        return creaturePresZoo;
+    }
 
+    private void trierParOrdreAlphabetique(ArrayList<Creature> creatures) {
+        Collections.sort(creatures, new Comparator<Creature>() {
+            @Override
+            public int compare(Creature creature1, Creature creature2) {
+                // Comparaison par le nom (ou autre attribut) de la créature
+                return creature1.getNom().compareTo(creature2.getNom());
+            }
+        });
     }
 
     public static int incrementerJour() {

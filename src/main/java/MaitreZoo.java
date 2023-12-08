@@ -75,7 +75,7 @@ public class MaitreZoo {
         }
     }
 
-    public boolean nourrir(Creature creature, Enclos enclos) {
+    public boolean nourrir(Creature creature) {
 
 
         // Vérifier si la créature est null avant d'appeler ses méthodes

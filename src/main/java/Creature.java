@@ -245,7 +245,6 @@ public class Creature implements Runnable{
 
             }
         }
-
     }
 
     public void maladie() {
