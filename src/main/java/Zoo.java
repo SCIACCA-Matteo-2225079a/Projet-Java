@@ -1,3 +1,5 @@
+import modele.Creature;
+
 import java.util.*;
 
 public class Zoo  {

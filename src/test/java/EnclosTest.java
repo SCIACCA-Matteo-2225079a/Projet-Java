@@ -1,3 +1,4 @@
+import modele.Creature;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
