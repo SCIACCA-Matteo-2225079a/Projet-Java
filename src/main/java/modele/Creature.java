@@ -24,8 +24,20 @@ public class Creature implements Runnable{
     Random random = new Random();
 
 
-
-
+    /**
+     * Créature
+     * @param nom
+     * @param sexe
+     * @param poids
+     * @param taille
+     * @param age
+     * @param indicateurDeFaim
+     * @param indicateurDeSommeil
+     * @param dormir
+     * @param indicateurDeSante
+     * @param malade
+     * @param son
+     */
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
                     boolean indicateurDeSommeil, boolean dormir, int indicateurDeSante, boolean malade,String son) {
         this.nom = nom;
@@ -45,96 +57,172 @@ public class Creature implements Runnable{
     }
 
 
+    /**
+     * Récupérer le nom de la créature
+     * @return nom
+     */
     public String getNom() {
 
         return nom;
     }
 
+    /**
+     * Modifier le nom de la créature
+     * @param nom
+     */
     public void setNom(String nom) {
 
         this.nom = nom;
     }
 
+    /**
+     * Récupérer le sexe de la créature
+     * @return sexe
+     */
     public String getSexe() {
 
         return sexe;
     }
 
+    /**
+     * Modifier le sexe de la créature
+     * @param sexe
+     */
     public void setSexe(String sexe) {
 
         this.sexe = sexe;
     }
 
+    /**
+     * Récupérer le poids de la créature
+     * @return poids
+     */
     public int getPoids() {
 
         return poids;
     }
 
+    /**
+     * Modifier le poids de la créature
+     * @param poids
+     */
     public void setPoids(int poids) {
 
         this.poids = poids;
     }
 
+    /**
+     * Récupérer la taille de la créature
+     * @return taille
+     */
     public int getTaille() {
 
         return taille;
     }
 
+    /**
+     * Modifier la taille de la créature
+     * @param taille
+     */
     public void setTaille(int taille) {
 
         this.taille = taille;
     }
 
+    /**
+     * Récupérer l'age de la créature
+     * @return age
+     */
     public int getAge() {
 
         return age;
     }
 
+    /**
+     * Modifier l'age de la créature
+     * @param age
+     */
     public void setAge(int age) {
 
         this.age = age;
     }
 
+    /**
+     * Savoir si la créature a faim ou pas
+     * @return indicateurFaim
+     */
     public boolean isIndicateurDeFaim() {
 
         return indicateurDeFaim;
     }
 
+    /**
+     * Indiquer si la créature a faim ou pas
+     * @param indicateurDeFaim
+     */
     public void setIndicateurDeFaim(boolean indicateurDeFaim) {
 
         this.indicateurDeFaim = indicateurDeFaim;
     }
 
+    /**
+     * Savoir si la créature doit dormir ou pas
+     * @return indicateurDeSommeil
+     */
     public boolean isIndicateurDeSommeil() {
 
         return indicateurDeSommeil;
     }
 
+    /**
+     * Indiquer si la créature doit dormir ou pas
+     * @param indicateurDeSommeil
+     */
     public void setIndicateurDeSommeil(boolean indicateurDeSommeil) {
 
         this.indicateurDeSommeil = indicateurDeSommeil;
     }
 
+    /**
+     * Savoir si la créature dort ou pas
+     * @return dormir
+     */
     public boolean isDormir() {
 
         return dormir;
     }
 
+    /**
+     * Indiquer si la créature dort ou pas
+     * @param dormir
+     */
     public void setDormir(boolean dormir) {
 
         this.dormir = dormir;
     }
 
+    /**
+     * Savoir quel est le niveau de santé de la créature
+     * @return indicateurDeSante
+     */
     public int getIndicateurDeSante() {
 
         return indicateurDeSante;
     }
 
+    /**
+     * Indiquer le niveau de santé de la créature
+     * @param indicateurDeSante
+     */
     public void setIndicateurDeSante(int indicateurDeSante) {
 
         this.indicateurDeSante = indicateurDeSante;
     }
 
+    /**
+     * Savoir si la créature est malade ou pas
+     * @return malade
+     */
     public boolean isMalade() {
         if(malade== true)
         {
@@ -144,18 +232,34 @@ public class Creature implements Runnable{
         return malade;
     }
 
+    /**
+     * Indiquer si la créature est malade
+     * @param malade
+     */
     public void setMalade(boolean malade) {
 
         this.malade = malade;
     }
+
+    /**
+     * Récupérer le son de la créature
+     * @return son
+     */
     public String getSon() {
         return son;
     }
 
+    /**
+     * Modifier le son de la créature
+     * @param son
+     */
     public void setSon(String son) {
         this.son = son;
     }
 
+    /**
+     * La créature est en train de manger
+     */
     public void manger() {
         if (dormir == false) {
             indicateurDeFaim = false;
@@ -164,6 +268,11 @@ public class Creature implements Runnable{
         }
     }
 
+    /**
+     * Statistiques de la créature
+     * @param obj
+     * @return Creature
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -185,6 +294,10 @@ public class Creature implements Runnable{
                 malade == creature.malade;
     }
 
+    /**
+     *
+     * @return
+     */
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
             System.out.println(getNom()+" va être soigné. "+ getIndicateurDeSante());
