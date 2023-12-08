@@ -5,7 +5,7 @@ class CreatureTest {
 
     @Test
     void sommeil() {
-        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, true, 100, false);
+        Creature creature = new Creature("Mégalodon", "Male", 50, 150, 5, true, true, true, 100, false,"ahaha");
         assertEquals(true, creature.isDormir());
     }
 
