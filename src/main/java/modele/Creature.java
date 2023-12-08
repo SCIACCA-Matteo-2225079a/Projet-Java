@@ -295,8 +295,8 @@ public class Creature implements Runnable{
     }
 
     /**
-     *
-     * @return
+     * La créature est soignée
+     * @return indicateurDeSante
      */
     public int etreSoigne() {
         if (this.indicateurDeSante != 100) {
@@ -309,7 +309,10 @@ public class Creature implements Runnable{
         return indicateurDeSante;
     }
 
-            public void sommeil() {
+    /**
+     * Cycle de sommeil de la créature
+     */
+    public void sommeil() {
                 Thread sommeilThread = new Thread(() -> {
                     while (true) {
                         try {
@@ -339,6 +342,10 @@ public class Creature implements Runnable{
                 sommeilThread.start();
             }
 
+
+    /**
+     * Indicateur de santé de la créature
+     */
     public void sante() {
         if (this.indicateurDeSante == 100) {
             System.out.println("L'animal est en parfaite santé");
@@ -362,6 +369,9 @@ public class Creature implements Runnable{
         }
     }
 
+    /**
+     * Maladie de la créature
+     */
     public void maladie() {
         if (this.malade == true) {
             maladieThread = new Thread(() -> {
@@ -381,6 +391,10 @@ public class Creature implements Runnable{
         }
     }
 
+    /**
+     * Génération d'une nouvelle créature
+     * @return newCreature
+     */
     public  Creature genererNouvelleCréature()
     {
         Random random = new Random();
@@ -429,6 +443,9 @@ public class Creature implements Runnable{
 
     public void mettreABas(){}
 
+    /**
+     * Son émit par la créature
+     */
     public void emettreSon(){
 
 
@@ -474,12 +491,20 @@ public class Creature implements Runnable{
         });
         sonThread.start();
     }
+
+    /**
+     * Vieillissement de la créature
+     */
     public void startVieillissement() {
         if (!vieillissementThread.isAlive()) {
             vieillissementThread = new Thread(this);
             vieillissementThread.start();
         }
     }
+
+    /**
+     * Viellissement de la créature en cours
+     */
     public void run() {
         // Tâche exécutée par le thread de vieillissement
         while (!Thread.interrupted()) {
@@ -495,6 +520,10 @@ public class Creature implements Runnable{
         }
     }
 
+    /**
+     * Affichage de toutes les statistiques de la créature
+     * @return Toutes les statistiques de la créature
+     */
     @Override
     public String toString() {
         return  "Espèce : " + nom + '\n' + "Sexe : " + sexe + '\n' + "Poids : " + poids + '\n'
