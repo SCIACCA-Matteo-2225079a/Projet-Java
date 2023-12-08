@@ -73,18 +73,18 @@ void TesttrierParOrdreAlphabetique () {
 
         // Création de quelques créatures non triées
         ArrayList<Creature> creatures = new ArrayList<>();
-        creatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false, "dsdq"));
-        creatures.add(new Creature("Tigre", "Femelle", 180, 120, 4, true, false, false, 90, false, "dsdq"));
-        creatures.add(new Creature("Girafe", "Mâle", 600, 300, 8, true, false, false, 200, false, "dsdq"));
+        creatures.add(new Creature("Kraken", "Mâle", 200, 150, 5, true, false, false, 100, false, "ok"));
+        creatures.add(new Creature("Phénix", "Femelle", 180, 120, 4, true, false, false, 90, false, "ok"));
+        creatures.add(new Creature("Mégalodon", "Mâle", 600, 300, 8, true, false, false, 200, false, "ok"));
 
         // Appel de la méthode pour trier les créatures
         zoo.trierParOrdreAlphabetique(creatures);
 
         // Création de la liste triée attendue
         ArrayList<Creature> expectedSortedCreatures = new ArrayList<>();
-        expectedSortedCreatures.add(new Creature("Girafe", "Mâle", 600, 300, 8, true, false, false, 200, false, "dsdq"));
-        expectedSortedCreatures.add(new Creature("Lion", "Mâle", 200, 150, 5, true, false, false, 100, false, "dsdq"));
-        expectedSortedCreatures.add(new Creature("Tigre", "Femelle", 180, 120, 4, true, false, false, 90, false, "dsdq"));
+        expectedSortedCreatures.add(new Creature("Dragon", "Mâle", 600, 300, 8, true, false, false, 200, false, "ok"));
+        expectedSortedCreatures.add(new Creature("Nymphe", "Mâle", 200, 150, 5, true, false, false, 100, false, "ok"));
+        expectedSortedCreatures.add(new Creature("Sirène", "Femelle", 180, 120, 4, true, false, false, 90, false, "ok"));
 
         // Vérification que la liste a été triée correctement
         assertEquals(expectedSortedCreatures, creatures);
