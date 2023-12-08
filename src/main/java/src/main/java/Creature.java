@@ -8,16 +8,16 @@ import java.util.Random;
 
 public class Creature {
 
-    private String nom;
+    public static String nom;
     private String sexe;
     private int poids;
     private int taille;
-    private int age;
-    private boolean indicateurDeFaim;
-    private boolean indicateurDeSommeil;
+    public static int age;
+    public static boolean indicateurDeFaim;
+    public static boolean indicateurDeSommeil;
     private boolean dormir;
-    private int indicateurDeSante = 100;
-    private boolean malade;
+    public static int indicateurDeSante = 100;
+    public static boolean malade;
 
 
     public Creature(String nom, String sexe, int poids, int taille, int age, boolean indicateurDeFaim,
@@ -34,7 +34,7 @@ public class Creature {
         this.malade = malade;
     }
 
-    public String getNom() {
+    public static String getNom() {
 
         return nom;
     }
@@ -142,10 +142,9 @@ public class Creature {
     }
 
     public void manger() {
-        if (this.indicateurDeSommeil == false) {
+        if (this.indicateurDeSommeil == false && this.indicateurDeFaim == true) {
+            System.out.println(getNom()+" est en train de manger " +'\n');
             this.indicateurDeFaim = false;
-            System.out.println(getNom()+" est en train de manger " +'\n'+indicateurDeFaim );
-
         }
     }
 
@@ -271,13 +270,13 @@ public class Creature {
     public void mourir()
     {
         Random random= new Random();
-        int mortViellesse = random.nextInt(130)+80;
-        if (age == mortViellesse){
+        int mortVieillesse = random.nextInt(130)+80;
+        if (age == mortVieillesse){
             System.out.println(getNom()+" est morte de vieillesse.");
         }
         else if (indicateurDeSante == 0)
         {
-            System.out.println(getNom()+" est morte d'un maladie.");
+            System.out.println(getNom()+" est morte d'une maladie.");
 
         }
     }
